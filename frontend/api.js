@@ -10,7 +10,7 @@
   // ── Config ─────────────────────────────────────────────────────────────────
   // Change API_BASE to your deployed backend URL when deploying to production.
   // For local dev, make sure the backend is running on port 3001.
-  const API_BASE = window.HC_API_BASE || 'http://localhost:3001/api';
+  const API_BASE = 'https://healthcare-backend-cxhj.onrender.com/api';
 
   // ── Token helpers ───────────────────────────────────────────────────────────
   function getToken()        { return localStorage.getItem('hc_token'); }
