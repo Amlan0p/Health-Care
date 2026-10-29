@@ -1,0 +1,28 @@
+{
+ "_meta": {
+  "synthetic": true,
+  "notice": "Sample list. View counts were removed because they were invented."
+ },
+ "trending": [
+  {
+   "t": "Balanced Eating: Where to Start",
+   "c": "Nutrition"
+  },
+  {
+   "t": "How AI Is Being Explored in Cancer Screening",
+   "c": "AI Medicine"
+  },
+  {
+   "t": "Reading a Blood Test Report: The Basics",
+   "c": "Wellness"
+  },
+  {
+   "t": "Keeping Up With Childhood Vaccine Schedules",
+   "c": "Vaccines"
+  },
+  {
+   "t": "Exercise and Heart Health: The Basics",
+   "c": "Cardiology"
+  }
+ ]
+}

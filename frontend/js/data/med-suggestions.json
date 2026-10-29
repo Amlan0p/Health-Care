@@ -1,0 +1,170 @@
+{
+ "_meta": {
+  "notice": "Common medicine names offered as autocomplete suggestions only. Not a recommendation or dosing guidance."
+ },
+ "medications": [
+  {
+   "name": "Metformin 500mg",
+   "times": [
+    "Morning with breakfast",
+    "Evening with dinner"
+   ]
+  },
+  {
+   "name": "Amlodipine 5mg",
+   "times": [
+    "Morning",
+    "Afternoon — 2:00 PM"
+   ]
+  },
+  {
+   "name": "Atorvastatin 10mg",
+   "times": [
+    "Night before sleep"
+   ]
+  },
+  {
+   "name": "Vitamin D3 1000IU",
+   "times": [
+    "Morning with breakfast"
+   ]
+  },
+  {
+   "name": "Paracetamol 650mg",
+   "times": [
+    "Morning",
+    "Afternoon",
+    "Night — as needed"
+   ]
+  },
+  {
+   "name": "Pantoprazole 40mg",
+   "times": [
+    "Before breakfast",
+    "Before dinner"
+   ]
+  },
+  {
+   "name": "Cetirizine 10mg",
+   "times": [
+    "Night before sleep",
+    "Bedtime"
+   ]
+  },
+  {
+   "name": "Azithromycin 500mg",
+   "times": [
+    "Morning",
+    "Evening after meals"
+   ]
+  },
+  {
+   "name": "Levothyroxine 50mcg",
+   "times": [
+    "Morning (empty stomach)"
+   ]
+  },
+  {
+   "name": "Glimepiride 1mg",
+   "times": [
+    "Before breakfast"
+   ]
+  },
+  {
+   "name": "Omeprazole 20mg",
+   "times": [
+    "Before breakfast",
+    "Before dinner"
+   ]
+  },
+  {
+   "name": "Ramipril 5mg",
+   "times": [
+    "Morning"
+   ]
+  },
+  {
+   "name": "Ibuprofen 400mg",
+   "times": [
+    "After meals — 3×/day"
+   ]
+  },
+  {
+   "name": "Vitamin B12 500mcg",
+   "times": [
+    "Morning with breakfast"
+   ]
+  },
+  {
+   "name": "Ferrous Sulphate 200mg",
+   "times": [
+    "Morning",
+    "Evening after meals"
+   ]
+  },
+  {
+   "name": "Sertraline 50mg",
+   "times": [
+    "Morning with breakfast"
+   ]
+  },
+  {
+   "name": "Atenolol 50mg",
+   "times": [
+    "Morning"
+   ]
+  },
+  {
+   "name": "Amoxicillin 500mg",
+   "times": [
+    "Morning",
+    "Afternoon",
+    "Night after meals"
+   ]
+  },
+  {
+   "name": "Calcium + D3 500mg",
+   "times": [
+    "After lunch"
+   ]
+  },
+  {
+   "name": "Aspirin 75mg",
+   "times": [
+    "Night after dinner"
+   ]
+  },
+  {
+   "name": "Montelukast 10mg",
+   "times": [
+    "Night before sleep"
+   ]
+  },
+  {
+   "name": "Metoprolol 25mg",
+   "times": [
+    "Morning with breakfast",
+    "Evening"
+   ]
+  },
+  {
+   "name": "Esomeprazole 40mg",
+   "times": [
+    "Before breakfast"
+   ]
+  },
+  {
+   "name": "Zinc 50mg",
+   "times": [
+    "Morning after breakfast"
+   ]
+  },
+  {
+   "name": "Vitamin C 500mg",
+   "times": [
+    "Morning with breakfast",
+    "Afternoon"
+   ]
+  }
+ ]
+}

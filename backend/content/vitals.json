@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "notice": "Reference ranges are general information only and are not medical advice."
+  },
+  "vitals": [
+    {
+      "key": "heartRate",
+      "label": "Heart Rate",
+      "unit": "bpm",
+      "icon": "heart",
+      "example": "72",
+      "hint": "General reference range for resting adults: 60–100 bpm",
+      "type": "int",
+      "min": 20,
+      "max": 300
+    },
+    {
+      "key": "bloodPressure",
+      "label": "Blood Pressure",
+      "unit": "mmHg",
+      "icon": "droplet",
+      "example": "120/80",
+      "hint": "General reference: below 120/80 mmHg. Format: systolic/diastolic",
+      "type": "bp"
+    },
+    {
+      "key": "temperature",
+      "label": "Temperature",
+      "unit": "°F",
+      "icon": "thermometer",
+      "example": "98.6",
+      "hint": "General reference range: 97–99 °F",
+      "type": "float",
+      "min": 90,
+      "max": 110
+    },
+    {
+      "key": "spo2",
+      "label": "SpO₂",
+      "unit": "%",
+      "icon": "droplets",
+      "example": "98",
+      "hint": "General reference range: 95–100 %",
+      "type": "int",
+      "min": 50,
+      "max": 100
+    }
+  ]
+}

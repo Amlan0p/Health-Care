@@ -1,0 +1,83 @@
+{
+  "symptoms": [
+    {
+      "id": "fever",
+      "label": "Fever",
+      "icon": "thermometer"
+    },
+    {
+      "id": "cough",
+      "label": "Cough",
+      "icon": "wind"
+    },
+    {
+      "id": "headache",
+      "label": "Headache",
+      "icon": "zap"
+    },
+    {
+      "id": "nausea",
+      "label": "Nausea",
+      "icon": "frown"
+    },
+    {
+      "id": "breathlessness",
+      "label": "Breathlessness",
+      "icon": "waves"
+    },
+    {
+      "id": "chest-pain",
+      "label": "Chest Pain",
+      "icon": "heart-pulse"
+    },
+    {
+      "id": "body-ache",
+      "label": "Body Ache",
+      "icon": "bone"
+    },
+    {
+      "id": "vomiting",
+      "label": "Vomiting",
+      "icon": "droplets"
+    },
+    {
+      "id": "fatigue",
+      "label": "Fatigue",
+      "icon": "battery-low"
+    },
+    {
+      "id": "runny-nose",
+      "label": "Runny Nose",
+      "icon": "droplet"
+    },
+    {
+      "id": "rash",
+      "label": "Rash / Spots",
+      "icon": "bug"
+    },
+    {
+      "id": "abdominal-pain",
+      "label": "Abdominal Pain",
+      "icon": "activity"
+    },
+    {
+      "id": "diarrhoea",
+      "label": "Diarrhoea",
+      "icon": "droplets"
+    },
+    {
+      "id": "dizziness",
+      "label": "Dizziness",
+      "icon": "rotate-cw"
+    },
+    {
+      "id": "swollen-eyes",
+      "label": "Swollen Eyes",
+      "icon": "eye"
+    }
+  ],
+  "emergencySymptomIds": [
+    "chest-pain",
+    "breathlessness"
+  ]
+}

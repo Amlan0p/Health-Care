@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="HealthCare — health information, AI health assistant, symptom information, appointment and medication tracking.">
+<meta name="theme-color" content="#2563b0">
+<title>HealthCare — Your Health, Our Priority</title>
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/nav.css">
+<link rel="stylesheet" href="assets/css/hero.css">
+<link rel="stylesheet" href="assets/css/services.css">
+<link rel="stylesheet" href="assets/css/news.css">
+<link rel="stylesheet" href="assets/css/contact.css">
+<link rel="stylesheet" href="assets/css/news-modal.css">
+<link rel="stylesheet" href="assets/css/footer.css">
+<link rel="stylesheet" href="assets/css/auth-modal.css">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+<link rel="stylesheet" href="assets/css/icons.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+<div class="read-progress" id="readProgress"></div>
+<button class="back-top" id="backTop" type="button" aria-label="Back to top"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#arrow-up"></use></svg></button>
+
+<!-- ═══════════════════════════════════
+     PAGE 1: HOME (Design from interface-1)
+════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- NAV -->
+  <nav id="homeNav">
+    <div class="home-logo" data-action="go-home"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg> Healthcare</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active" data-section="home">HOME</a></li>
+      <li><a href="#services" data-section="services">SERVICES</a></li>
+      <li><a href="#news-section" data-section="news">NEWS</a></li>
+      <li><a href="#contact" data-section="contact">CONTACT US</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle1" type="button" title="Toggle day/night" aria-label="Toggle day/night theme">
+        <span class="toggle-thumb" id="toggleThumb1"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#sun"></use></svg></span>
+      </button>
+      <button class="btn-signin" data-action="go-to-auth">SIGN IN / SIGN UP</button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#menu"></use></svg></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="stars" id="stars"></div>
+
+    <div class="hero-left">
+      <div class="illustration">
+
+        <svg class="virus-group" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
+             style="position:absolute;top:0;left:120px;width:200px;height:200px;z-index:1;">
+          <circle cx="100" cy="15"  r="12" fill="#7dc95e"/>
+          <circle cx="150" cy="35"  r="10" fill="#7dc95e"/>
+          <circle cx="178" cy="80"  r="11" fill="#7dc95e"/>
+          <circle cx="178" cy="125" r="10" fill="#7dc95e"/>
+          <circle cx="148" cy="162" r="12" fill="#7dc95e"/>
+          <circle cx="100" cy="178" r="11" fill="#7dc95e"/>
+          <circle cx="52"  cy="162" r="10" fill="#7dc95e"/>
+          <circle cx="22"  cy="125" r="11" fill="#7dc95e"/>
+          <circle cx="22"  cy="80"  r="10" fill="#7dc95e"/>
+          <circle cx="50"  cy="35"  r="12" fill="#7dc95e"/>
+          <circle cx="100" cy="100" r="70" fill="#7dc95e"/>
+          <ellipse cx="80"  cy="80"  rx="18" ry="12" fill="#a8dba4" opacity="0.7" transform="rotate(-30 80 80)"/>
+          <ellipse cx="125" cy="95"  rx="14" ry="9"  fill="#a8dba4" opacity="0.7" transform="rotate(20 125 95)"/>
+          <ellipse cx="90"  cy="125" rx="16" ry="10" fill="#a8dba4" opacity="0.6" transform="rotate(-10 90 125)"/>
+        </svg>
+
+        <div class="monitor">
+          <div class="monitor-screen">
+            <svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg" style="width:300px;height:260px;display:block;">
+              <rect x="95" y="130" width="110" height="130" rx="10" fill="#e8f0f7"/>
+              <polygon points="150,145 125,210 150,195" fill="#d0dcea"/>
+              <polygon points="150,145 175,210 150,195" fill="#d0dcea"/>
+              <rect x="125" y="145" width="50" height="50" rx="4" fill="#5cb85c"/>
+              <circle cx="150" cy="105" r="38" fill="#f5c9a3"/>
+              <ellipse cx="150" cy="76" rx="38" ry="18" fill="#5b3a29"/>
+              <rect x="112" y="76" width="76" height="22" rx="4" fill="#5b3a29"/>
+              <rect x="128" y="70" width="44" height="8" rx="4" fill="#4a90c4"/>
+              <circle cx="152" cy="74" r="7" fill="#b0cfe8" stroke="#4a90c4" stroke-width="2"/>
+              <ellipse cx="138" cy="108" rx="5" ry="6" fill="#3a2010"/>
+              <ellipse cx="162" cy="108" rx="5" ry="6" fill="#3a2010"/>
+              <path d="M138 122 Q150 132 162 122" stroke="#c0896a" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <g id="doctor-arm">
+                <line x1="205" y1="155" x2="255" y2="115" stroke="#e8f0f7" stroke-width="22" stroke-linecap="round"/>
+                <circle cx="258" cy="112" r="10" fill="#f5c9a3"/>
+              </g>
+              <line x1="95" y1="160" x2="60" y2="200" stroke="#e8f0f7" stroke-width="22" stroke-linecap="round"/>
+              <rect x="32" y="188" width="52" height="70" rx="6" fill="#8e7fc0" stroke="#6b5fad" stroke-width="3"/>
+              <rect x="38" y="196" width="40" height="52" rx="3" fill="#b0a8d8"/>
+            </svg>
+          </div>
+          <div class="monitor-stand"></div>
+          <div class="monitor-base"></div>
+        </div>
+
+        <div class="icon-cards">
+          <div class="icon-card">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#e8f4fd"/>
+              <path d="M20 8 L34 20 H30 V32 H24 V26 H16 V32 H10 V20 H6 Z" fill="#4a90c4"/>
+              <rect x="17" y="16" width="6" height="2" rx="1" fill="white"/>
+              <rect x="19" y="14" width="2" height="6" rx="1" fill="white"/></svg>
+          </div>
+          <div class="icon-card">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#e8f4fd"/>
+              <rect x="15" y="8" width="10" height="5" rx="2" fill="#4a90c4"/>
+              <rect x="13" y="12" width="14" height="20" rx="5" fill="#4a90c4"/>
+              <rect x="18" y="18" width="4" height="2" rx="1" fill="white"/>
+              <rect x="19" y="16" width="2" height="6" rx="1" fill="white"/></svg>
+          </div>
+          <div class="icon-card">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#e8f4fd"/>
+              <path d="M20 10 C20 10 12 20 12 25 a8 8 0 0 0 16 0 C28 20 20 10 20 10Z" fill="#4a90c4"/>
+              <circle cx="17" cy="24" r="2.5" fill="white" opacity="0.6"/></svg>
+          </div>
+        </div>
+
+        <svg style="position:absolute;left:-30px;top:90px;z-index:3;pointer-events:none;" width="110" height="220" viewBox="0 0 110 220">
+          <circle cx="90" cy="10"  r="7" fill="#c8e0f4" stroke="#4a90c4" stroke-width="2"/>
+          <line class="dash-line" x1="90" y1="10" x2="40" y2="30" stroke="#4a90c4" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <circle cx="90" cy="110" r="7" fill="#c8e0f4" stroke="#4a90c4" stroke-width="2"/>
+          <line class="dash-line" x1="90" y1="110" x2="40" y2="90" stroke="#4a90c4" stroke-width="1.5" stroke-dasharray="4 3" style="animation-delay:0.4s"/>
+          <circle cx="90" cy="200" r="7" fill="#c8e0f4" stroke="#4a90c4" stroke-width="2"/>
+          <line class="dash-line" x1="90" y1="200" x2="40" y2="155" stroke="#4a90c4" stroke-width="1.5" stroke-dasharray="4 3" style="animation-delay:0.8s"/>
+        </svg>
+
+        <div class="mask-card">
+          <svg viewBox="0 0 50 38" fill="none" width="44">
+            <path d="M2 12 Q25 4 48 12 L48 26 Q25 34 2 26 Z" fill="#a8d8ea" stroke="#7bbcde" stroke-width="2"/>
+            <path d="M2 12 Q25 18 48 12" stroke="#7bbcde" stroke-width="1.5" fill="none"/>
+            <path d="M2 26 Q25 20 48 26" stroke="#7bbcde" stroke-width="1.5" fill="none"/>
+            <line x1="0" y1="14" x2="2" y2="24" stroke="#5fa8ca" stroke-width="2" stroke-linecap="round"/>
+            <line x1="50" y1="14" x2="48" y2="24" stroke="#5fa8ca" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <h1 class="reveal" id="hero-heading">Healthy Life Starts from Here<span class="cursor"></span></h1>
+      <p class="reveal" style="transition-delay:0.15s">We bring trusted medical support, expert guidance, and digital healthcare services right to your fingertips, helping you live a balanced and healthier life every day.</p>
+      <button class="btn-start reveal" style="transition-delay:0.3s" data-action="go-to-auth">START HERE</button>
+    </div>
+
+    <div class="scroll-cta" data-action="scroll-to" data-arg="services">
+      <span>Scroll to explore</span>
+      <svg viewBox="0 0 28 28" fill="none" stroke="var(--blue-mid)" stroke-width="2" stroke-linecap="round">
+        <polyline points="6,10 14,18 22,10"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <div class="section-header" id="servicesHeader">
+      <div class="section-label">What We Offer</div>
+      <h2>Our Healthcare Services</h2>
+      <p>Comprehensive digital health services designed to support your well-being every step of the way.</p>
+    </div>
+
+    <div class="services-grid" id="servicesGrid">
+      <div class="service-card">
+        <div class="service-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#stethoscope"></use></svg></div>
+        <h3>Doctor Appointments</h3>
+        <p>Browse a sample doctor directory and save appointment reminders to your own account.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg></div>
+        <h3>Medication Management</h3>
+        <p>Keep a list of your medications and mark each dose as taken or missed.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#dna"></use></svg></div>
+        <h3>AI Symptom Information</h3>
+        <p>Pick your symptoms to see AI-generated possibilities for general information. It is not a diagnosis.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#dumbbell"></use></svg></div>
+        <h3>Wellness Guidance</h3>
+        <p>Ask the AI health assistant about nutrition, fitness and mental wellbeing.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#clipboard-list"></use></svg></div>
+        <h3>Medical Records</h3>
+        <p>Keep your own vitals and medication list together in one private account.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#hospital"></use></svg></div>
+        <h3>Nearby Hospitals</h3>
+        <p>Find hospitals near you on a map, with emergency numbers one tap away.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS SECTION -->
+  <section id="news-section">
+    <div class="section-header" id="newsHeader">
+      <div class="section-label">Latest Updates</div>
+      <h2>Health News &amp; Insights</h2>
+      <p>Stay informed with the latest breakthroughs in medical research, technology, and wellness.</p>
+      <p class="sample-note" id="sampleNote"></p>
+    </div>
+
+    <!-- TICKER — ticker-track wraps ticker-scroll so "BREAKING" label is never covered -->
+    <div class="ticker-wrap" id="tickerWrap">
+      <div class="ticker-label"><div class="live-dot"></div>SAMPLE</div>
+      <div class="ticker-track">
+        <div class="ticker-scroll" id="tickerScroll" aria-label="Sample headlines"></div>
+      </div>
+    </div>
+
+    <div class="news-layout">
+      <main>
+        <div class="filter-row" id="filterRow">
+          <button class="ftab active" data-cat="all" type="button">All Topics</button>
+          <button class="ftab" data-cat="ai">AI &amp; Tech</button>
+          <button class="ftab" data-cat="vaccine">Vaccines</button>
+          <button class="ftab" data-cat="research">Research</button>
+          <button class="ftab" data-cat="mental">Mental Health</button>
+          <button class="ftab" data-cat="virus">Virology</button>
+        </div>
+
+        <div class="news-grid" id="newsGrid"></div>
+        <div class="load-wrap"><button class="btn-load" id="loadMoreBtn">Load More Articles</button></div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="s-card">
+          <div class="s-title">Search</div>
+          <div class="search-wrap">
+            <input class="search-inp" id="searchInput" type="search" placeholder="Search health news…" aria-label="Search health news">
+            <button class="search-btn" id="searchBtn" type="button" aria-label="Search"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#search"></use></svg></button>
+          </div>
+        </div>
+        <div class="s-card">
+          <div class="s-title">Trending Now</div>
+          <div class="trend-list" id="trendList"></div>
+        </div>
+        <div class="s-card nl-card">
+          <div class="s-title">Health Newsletter</div>
+          <p>Leave your email to join our health-tips mailing list.</p>
+          <input class="nl-inp" type="email" id="nlEmail" placeholder="your@email.com" aria-label="Email address" autocomplete="email" maxlength="254">
+          <button class="nl-btn" id="nlBtn" type="button">SUBSCRIBE FREE</button>
+          <p class="nl-note" id="nlNote" role="status" aria-live="polite">We store your email address only to contact you about health tips. No emails are sent automatically yet.</p>
+        </div>
+        <div class="s-card">
+          <div class="s-title">Topics</div>
+          <div class="tags-wrap">
+            <span class="tag">COVID-19</span><span class="tag">Vaccines</span>
+            <span class="tag">Mental Health</span><span class="tag">Nutrition</span>
+            <span class="tag">Cardiology</span><span class="tag">AI Medicine</span>
+            <span class="tag">Telemedicine</span><span class="tag">Cancer</span>
+            <span class="tag">Pediatrics</span><span class="tag">Genomics</span>
+            <span class="tag">Neurology</span><span class="tag">Wellness</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="section-label" style="margin-bottom:14px;">Get In Touch</div>
+        <h2>We're Here to Help You</h2>
+        <p>Have questions about your health, our services, or need support? Reach out through any of our channels — our team is ready to assist you.</p>
+
+        <div class="social-row">
+          <a class="social-btn fb" href="#contact" data-social="facebook" title="Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a class="social-btn wa" href="#contact" data-social="whatsapp" title="WhatsApp" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+          <a class="social-btn ig" href="#contact" data-social="instagram" title="Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </a>
+          <a class="social-btn li" href="#contact" data-social="linkedin" title="LinkedIn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a class="social-btn mail" href="#contact" data-social="email" title="Email" aria-label="Email">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h3>Send Us a Message</h3>
+        <form id="contactForm" novalidate>
+          <div class="cf-group">
+            <label for="cfName">Your Name</label>
+            <input class="cf-input" id="cfName" name="name" type="text" placeholder="John Smith" required maxlength="100" autocomplete="name">
+          </div>
+          <div class="cf-group">
+            <label for="cfEmail">Email Address</label>
+            <input class="cf-input" id="cfEmail" name="email" type="email" placeholder="you@example.com" required maxlength="254" autocomplete="email">
+          </div>
+          <div class="cf-group">
+            <label for="cfSubject">Subject</label>
+            <input class="cf-input" id="cfSubject" name="subject" type="text" placeholder="How can we help?" maxlength="150">
+          </div>
+          <div class="cf-group">
+            <label for="cfMessage">Message</label>
+            <textarea class="cf-input" id="cfMessage" name="message" placeholder="Tell us more about your query…" required minlength="5" maxlength="2000"></textarea>
+          </div>
+          <button type="submit" class="btn-cf-send" id="cfSend">SEND MESSAGE <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#arrow-right"></use></svg></button>
+          <p class="form-status" id="cfStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="f-brand">
+        <div class="f-brand-name"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg> Healthcare</div>
+        <p>Health information and personal health-tracking tools. News content on this site is sample content and is clearly labelled as such.</p>
+      </div>
+      <div class="f-col"><h4>Sections</h4>
+        <ul>
+          <li><a href="#news-section" data-footer-cat="all">Sample News</a></li>
+          <li><a href="#news-section" data-footer-cat="vaccine">Vaccines</a></li>
+          <li><a href="#news-section" data-footer-cat="ai">AI &amp; Tech</a></li>
+          <li><a href="#news-section" data-footer-cat="research">Research</a></li>
+          <li><a href="#news-section" data-footer-cat="mental">Mental Health</a></li>
+        </ul>
+      </div>
+      <div class="f-col"><h4>Explore</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col"><h4>Legal</h4>
+        <ul>
+          <li><a href="#" data-action="open-legal" data-arg="privacy">Privacy Notice</a></li>
+          <li><a href="#" data-action="open-legal" data-arg="disclaimer">Medical Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Healthcare. All rights reserved.</span>
+      <div class="f-status"><div class="f-dot" id="apiDot"></div><span id="apiStatus" role="status">Checking service…</span></div>
+    </div>
+  </footer>
+
+  <!-- NEWS ARTICLE MODAL -->
+  <div class="news-modal-overlay" id="newsModalOverlay">
+    <div class="news-modal-box" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+      <button class="modal-close-btn" id="newsModalClose" type="button" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#x"></use></svg></button>
+      <div class="m-sample">Sample article — illustrative placeholder content, not real news or medical advice</div>
+      <div class="m-cat" id="mCat"></div>
+      <h2 id="mTitle"></h2>
+      <p id="mBody"></p>
+      <div class="m-meta">
+        <span id="mAuthor"></span>
+        <span id="mDate"></span>
+        <span id="mRead"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEGAL / INFO MODAL -->
+  <div class="news-modal-overlay" id="legalModalOverlay">
+    <div class="news-modal-box" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+      <button class="modal-close-btn" id="legalModalClose" type="button" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#x"></use></svg></button>
+      <h2 id="legalTitle"></h2>
+      <div id="legalBody" class="legal-body"></div>
+    </div>
+  </div>
+
+</div><!-- /page-home -->
+
+<!-- ═══════════════════════════════════
+     AUTH MODAL — overlays page-home
+════════════════════════════════════ -->
+<div class="auth-modal-overlay" id="authModal" data-action="overlay-auth">
+  <div class="auth-container" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <button class="auth-modal-close" type="button" data-action="close-auth" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#x"></use></svg></button>
+    <div class="auth-logo">
+      <div class="auth-logo-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg></div>
+      <h2 id="authTitle"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg> HealthCare</h2>
+      <p>Your personal health companion</p>
+    </div>
+
+    <div class="auth-tabs" role="tablist">
+      <button class="auth-tab active" id="tabSignIn" type="button" role="tab" aria-selected="true" data-action="auth-tab" data-arg="signin">Sign In</button>
+      <button class="auth-tab" id="tabSignUp" type="button" role="tab" aria-selected="false" data-action="auth-tab" data-arg="signup">Sign Up</button>
+    </div>
+
+    <!-- SIGN IN FORM -->
+    <div id="formSignIn">
+      <div id="siError" class="auth-error" role="alert"></div>
+      <form class="auth-form" id="signInForm" novalidate>
+        <div class="form-group">
+          <label for="siEmail">Email Address</label>
+          <input class="form-input" type="email" id="siEmail" name="email" placeholder="you@example.com" autocomplete="email" required maxlength="254">
+        </div>
+        <div class="form-group">
+          <label for="siPassword">Password</label>
+          <input class="form-input" type="password" id="siPassword" name="password" placeholder="Enter your password" autocomplete="current-password" required maxlength="200">
+        </div>
+        <button class="btn-auth" type="submit" id="siSubmit">SIGN IN TO DASHBOARD</button>
+      </form>
+      <div class="auth-divider" style="margin-top:18px;">or</div>
+      <button class="btn-social" type="button" data-action="demo-login" style="width:100%;margin-top:12px;justify-content:center;color:var(--text-body);font-size:0.78rem;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#eye"></use></svg> Continue as Demo (read-only sample data)</button>
+      <p class="auth-footer-text">
+        Don't have an account? <span class="auth-link" data-action="auth-tab" data-arg="signup">Sign up free</span>
+      </p>
+    </div>
+
+    <!-- SIGN UP FORM -->
+    <div id="formSignUp" style="display:none;">
+      <div id="suError" class="auth-error" role="alert"></div>
+      <div id="suSuccess" class="auth-success" role="status"></div>
+      <form class="auth-form" id="signUpForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="suFirst">First Name</label>
+            <input class="form-input" type="text" id="suFirst" name="first" placeholder="John" autocomplete="given-name" required maxlength="50">
+          </div>
+          <div class="form-group">
+            <label for="suLast">Last Name</label>
+            <input class="form-input" type="text" id="suLast" name="last" placeholder="Doe" autocomplete="family-name" maxlength="50">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="suEmail">Email Address</label>
+          <input class="form-input" type="email" id="suEmail" name="email" placeholder="you@example.com" autocomplete="email" required maxlength="254">
+        </div>
+        <div class="form-group">
+          <label for="suPassword">Password (min 8 chars)</label>
+          <input class="form-input" type="password" id="suPassword" name="password" placeholder="Create a password" autocomplete="new-password" required minlength="8" maxlength="72">
+        </div>
+        <div class="form-group">
+          <label for="suConfirm">Confirm Password</label>
+          <input class="form-input" type="password" id="suConfirm" name="confirm" placeholder="Repeat your password" autocomplete="new-password" required maxlength="72">
+        </div>
+        <button class="btn-auth" type="submit" id="suSubmit" style="background:var(--green);box-shadow:0 6px 20px rgba(78,168,62,0.3);">CREATE ACCOUNT</button>
+      </form>
+      <p class="auth-footer-text">
+        Already have an account? <span class="auth-link" data-action="auth-tab" data-arg="signin">Sign in</span>
+      </p>
+    </div>
+  </div>
+</div><!-- /authModal -->
+
+
+<!-- ═══════════════════════════════════
+     PAGE 3: DASHBOARD — UNCHANGED from Doc 1
+════════════════════════════════════ -->
+<div class="page" id="page-dashboard">
+
+  <!-- SOS MODAL -->
+  <div class="sos-modal-overlay" id="sosModal">
+    <div class="sos-modal" role="dialog" aria-modal="true" aria-labelledby="sosTitle">
+      <div class="sos-modal-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#siren"></use></svg></div>
+      <h2 id="sosTitle">Emergency SOS</h2>
+      <p>Are you in a medical emergency? Tap a button below to call. This app does not contact anyone on your behalf.</p>
+      <div class="modal-actions">
+        <a href="tel:112" class="modal-btn call"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#life-buoy"></use></svg> Call Emergency — 112</a>
+        <a href="tel:102" class="modal-btn call"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#ambulance"></use></svg> Call Ambulance — 102</a>
+        <a href="tel:100" class="modal-btn police"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#shield-alert"></use></svg> Call Police — 100</a>
+        <button class="modal-btn cancel" data-action="close-sos">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOK APPOINTMENT MODAL -->
+  <div class="sos-modal-overlay" id="bookApptModal" style="z-index:1001;">
+    <div class="sos-modal appt-modal" role="dialog" aria-modal="true" aria-labelledby="apptTitle">
+      <button class="modal-close-btn" type="button" data-action="close-book-appt" style="position:absolute;top:14px;right:14px;" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#x"></use></svg></button>
+      <div style="font-size:2rem;margin-bottom:10px;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#calendar"></use></svg></div>
+      <h2 id="apptTitle" style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--text-dark);margin-bottom:6px;font-size:1.35rem;">Book an Appointment</h2>
+      <p style="color:var(--text-body);font-size:0.83rem;margin-bottom:8px;">Select a doctor from the list below</p>
+      <p class="sample-note" id="doctorNotice" style="margin-bottom:16px;"></p>
+      <div class="auth-error" id="apptError" role="alert"></div>
+
+      <!-- Step 1: Doctor selection -->
+      <div id="apptStep1">
+        <div style="display:grid;gap:10px;" id="doctorList"></div>
+      </div>
+
+      <!-- Step 2: Date & time picker -->
+      <div id="apptStep2" style="display:none;">
+        <div id="selectedDoctorPreview" style="background:var(--surface2);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:18px;display:flex;align-items:center;gap:12px;"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
+          <div>
+            <label for="apptDateInput" style="font-size:0.78rem;font-weight:700;color:var(--text-body);display:block;margin-bottom:6px;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#calendar-days"></use></svg> Date</label>
+            <input type="date" id="apptDateInput" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);color:var(--text-dark);font-size:0.88rem;font-family:'Lato',sans-serif;">
+          </div>
+          <div>
+            <label for="apptTimeInput" style="font-size:0.78rem;font-weight:700;color:var(--text-body);display:block;margin-bottom:6px;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#clock"></use></svg> Time</label>
+            <select id="apptTimeInput" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);color:var(--text-dark);font-size:0.88rem;font-family:'Lato',sans-serif;"></select>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="modal-btn cancel" type="button" style="flex:1;" data-action="appt-back"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#arrow-left"></use></svg> Back</button>
+          <button class="modal-btn" style="flex:2;background:var(--blue-dark);color:#fff;" data-action="confirm-appt" type="button" id="confirmApptBtn"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#check"></use></svg> Save Appointment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD NAV -->
+  <nav class="main-nav" id="dashNav">
+    <div class="logo-wrap" data-action="go-home" aria-label="HealthCare home">
+      <div class="logo-icon-nav"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg></div>
+      HealthCare
+    </div>
+    <div class="dash-nav-tabs" id="dashTabs" role="tablist" aria-label="Dashboard sections">
+      <button class="active" data-action="show-panel" data-arg="home">Home</button>
+      <button data-action="show-panel" data-arg="ai">AI Chat</button>
+      <button data-action="show-panel" data-arg="symptoms">Symptoms</button>
+      <button data-action="show-panel" data-arg="hospitals">Hospitals</button>
+      <button data-action="show-panel" data-arg="sos">SOS</button>
+      <button data-action="show-panel" data-arg="records">Records</button>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle3" type="button" title="Toggle theme" aria-label="Toggle day/night theme">
+        <span class="toggle-thumb" id="toggleThumb3"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#sun"></use></svg></span>
+      </button>
+      <button class="btn-nav-action sos-btn" type="button" data-action="open-sos"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#life-buoy"></use></svg> SOS</button>
+      <button class="btn-nav-action" data-action="sign-out" style="background:transparent;color:var(--text-dark);border:2px solid var(--border);" id="userBtn">Sign Out</button>
+    </div>
+  </nav>
+
+  <!-- DEMO BANNER -->
+  <div id="demoBanner" role="status" style="display:none;background:linear-gradient(90deg,#fff3cd,#ffeaa0);border-bottom:2px solid #f5c842;padding:10px 60px;align-items:center;justify-content:space-between;gap:12px;font-family:'Nunito',sans-serif;">
+    <span style="font-size:0.85rem;color:#856404;font-weight:700;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#triangle-alert"></use></svg> Demo Mode — read-only sample data. Create a free account to save your own information and use the AI features.</span>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button data-action="go-to-auth-signup" style="background:#1a3f6f;color:#fff;border:none;padding:7px 18px;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;cursor:pointer;">Sign Up Free</button>
+      <button data-action="sign-out" style="background:transparent;border:1.5px solid #856404;color:#856404;padding:7px 14px;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.78rem;cursor:pointer;">Exit Demo</button>
+    </div>
+  </div>
+
+  <div class="dash-main">
+
+    <!-- HOME PANEL -->
+    <div class="panels active" id="panel-home">
+      <div class="dash-hero">
+        <div class="hero-badge">AI-Powered Health Companion</div>
+        <h1>Your Personal <em>Health Companion</em></h1>
+        <p>AI-driven symptom analysis, instant hospital locator, and 24/7 emergency support — all in one place.</p>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">AI Support</span></div>
+          <div class="stat"><span class="stat-num">Live</span><span class="stat-label">Hospital Map</span></div>
+          <div class="stat"><span class="stat-num">112</span><span class="stat-label">Emergency</span></div>
+          <div class="stat"><span class="stat-num">AI</span><span class="stat-label">Not a Diagnosis</span></div>
+        </div>
+      </div>
+
+      <div class="quick-grid">
+        <div class="quick-card" data-action="show-panel" data-arg="ai">
+          <div class="qc-icon green"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#bot"></use></svg></div>
+          <div class="qc-title">AI Health Chat</div>
+          <div class="qc-desc">Ask health questions and get general information powered by AI.</div>
+        </div>
+        <div class="quick-card" data-action="show-panel" data-arg="symptoms">
+          <div class="qc-icon blue"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#stethoscope"></use></svg></div>
+          <div class="qc-title">Symptom Checker</div>
+          <div class="qc-desc">Select symptoms to see AI-generated possibilities for general information.</div>
+        </div>
+        <div class="quick-card" data-action="show-panel" data-arg="hospitals">
+          <div class="qc-icon red"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#hospital"></use></svg></div>
+          <div class="qc-title">Find Hospitals</div>
+          <div class="qc-desc">Find hospitals and clinics near you on a map.</div>
+        </div>
+        <div class="quick-card" data-action="show-panel" data-arg="records">
+          <div class="qc-icon purple"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#clipboard-list"></use></svg></div>
+          <div class="qc-title">Health Records</div>
+          <div class="qc-desc">Track vitals, medications, and upcoming appointments in one place.</div>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#lightbulb"></use></svg></div>
+        <div class="tip-text">
+          <strong>Health Tip</strong>
+          <span id="tipText"></span>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#calendar"></use></svg></span> Upcoming Appointments</div>
+            <button class="btn-nav-action" type="button" style="font-size:0.75rem;padding:7px 16px;" data-action="open-book-appt">+ Book Appointment</button>
+          </div>
+          <div class="panel-body" id="appointmentsContainer">
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg></span> Medications Today</div>
+            <button class="btn-nav-action" type="button" style="font-size:0.75rem;padding:7px 16px;" data-action="open-add-med">+ Add</button>
+          </div>
+          <div class="panel-body" id="medicationsContainer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI CHAT PANEL -->
+    <div class="panels" id="panel-ai">
+      <div class="panel-card" style="margin-bottom:16px;">
+        <div class="panel-header">
+          <div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#heart-pulse"></use></svg></span> HealthAssist AI</div>
+          <div class="panel-actions"><button class="map-btn" type="button" data-action="clear-chat" style="font-size:0.72rem;padding:6px 10px;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#trash-2"></use></svg> Clear chat</button><div class="online-badge" id="aiBadge">● Online</div></div>
+        </div>
+        <div class="panel-body" style="display:flex;flex-direction:column;">
+          <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-label="Chat with HealthAssist AI">
+            <div class="msg ai">
+              <div class="msg-avatar ai"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#heart-pulse"></use></svg></div>
+              <div class="msg-bubble">Namaskar! 🙏 I'm <strong>HealthAssist AI</strong>, your personal health companion.<br><br>I can help you with:<br>• <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#thermometer"></use></svg> Symptoms &amp; diseases (dengue, cholera, diabetes, fever, etc.)<br>• <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg> General medicine information (always check with a doctor)<br>• <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#hospital"></use></svg> Hospitals &amp; emergency numbers<br>• <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#leaf"></use></svg> Diet, nutrition &amp; fitness<br>• <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#brain"></use></svg> Mental health support<br>• <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#chart-column"></use></svg> General guidance on your self-entered vitals (heart rate, BP, temperature, SpO₂)<br><br>I only answer <strong>health-related questions</strong>. How can I help you today?</div>
+            </div>
+          </div>
+          <p class="ai-note">AI-generated general information, not medical advice. Your messages are processed by an external AI provider. In an emergency call 112.</p>
+          <div class="chat-input-row">
+            <input class="chat-input" id="chatInput" placeholder="Ask about symptoms, medicines, hospitals…" aria-label="Message HealthAssist AI" maxlength="2000" autocomplete="off">
+            <button class="send-btn" id="sendBtn" type="button" data-action="send-chat" aria-label="Send message"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#send"></use></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="panel-card">
+          <div class="panel-header"><div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#zap"></use></svg></span> Quick Questions</div></div>
+          <div class="panel-body quick-q-col">
+            <button class="quick-q-btn" type="button" data-action="ask-quick" data-arg="Check my vitals risk" data-include-vitals="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#chart-column"></use></svg> Check my health risk / vitals</button>
+            <button class="quick-q-btn" type="button" data-action="ask-quick" data-arg="What are the symptoms of cholera?"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#biohazard"></use></svg> Symptoms of cholera?</button>
+            <button class="quick-q-btn" type="button" data-action="ask-quick" data-arg="What are the symptoms of dengue fever?"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#bug"></use></svg> Symptoms of dengue fever?</button>
+            <button class="quick-q-btn" type="button" data-action="ask-quick" data-arg="How to manage high blood pressure naturally?"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#droplet"></use></svg> Managing high blood pressure?</button>
+            <button class="quick-q-btn" type="button" data-action="ask-quick" data-arg="What are the emergency helpline numbers in India?"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#siren"></use></svg> Emergency helpline numbers?</button>
+            <button class="quick-q-btn" type="button" data-action="ask-quick" data-arg="What are the benefits of regular exercise for health?"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#dumbbell"></use></svg> Benefits of regular exercise?</button>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#chart-column"></use></svg></span> My Vitals</div>
+            <span style="font-size:0.72rem;color:var(--text-dimmer);font-family:'Nunito',sans-serif;">Click a card to add or edit a reading</span>
+          </div>
+          <div class="panel-body">
+            <div class="vitals-grid" id="vitalsGridAI"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYMPTOMS PANEL -->
+    <div class="panels" id="panel-symptoms">
+      <div class="two-col">
+        <div class="panel-card">
+          <div class="panel-header"><div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#stethoscope"></use></svg></span> Symptom Checker</div></div>
+          <div class="panel-body">
+            <p style="font-size:0.82rem;color:var(--text-body);margin-bottom:14px;">Select all symptoms you are currently experiencing. Results are AI-generated possibilities, not a diagnosis:</p>
+            <div class="symptom-grid" id="symptomGrid" role="group" aria-label="Symptoms"></div>
+            <button class="check-btn" type="button" data-action="check-symptoms">Analyse Symptoms</button>
+            <div class="symptom-result" id="symptomResult" style="margin-top:14px;"></div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-header"><div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#clipboard-list"></use></svg></span> Common Health Risks</div></div>
+          <div class="panel-body" id="commonRisks" style="display:flex;flex-direction:column;gap:12px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOSPITALS PANEL -->
+    <div class="panels" id="panel-hospitals">
+      <div style="margin-bottom:20px;">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#map"></use></svg></span> Hospitals Near You</div>
+            <button class="map-btn" type="button" data-action="locate-user" style="font-size:0.75rem;padding:7px 12px;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#map-pin"></use></svg> My Location</button>
+          </div>
+          <div class="panel-body" style="padding:0;">
+            <div class="map-container">
+              <div id="hospitalMap" role="region" aria-label="Map of nearby hospitals"></div>
+              <div class="map-status" id="mapStatus"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-card" style="margin-bottom:20px;">
+        <div class="panel-header">
+          <div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#hospital"></use></svg></span> Nearby Hospitals <span id="hospCount" style="font-size:0.72rem;color:var(--text-body);font-weight:600;margin-left:6px;"></span></div>
+          <button class="map-btn" type="button" data-action="open-google-maps" style="font-size:0.75rem;padding:7px 12px;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#external-link"></use></svg> Google Maps</button>
+        </div>
+        <div class="panel-body">
+          <div id="nearbyHospList" class="nearby-hosp-list">
+            <div style="text-align:center;padding:24px;color:var(--text-body);font-size:0.88rem;">
+              <div style="font-size:2rem;margin-bottom:8px;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#map-pin"></use></svg></div>
+              Allow location access to see hospitals near you (from OpenStreetMap data; may be incomplete)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOS PANEL -->
+    <div class="panels" id="panel-sos">
+      <div class="two-col">
+        <div class="panel-card">
+          <div class="panel-header"><div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#siren"></use></svg></span> Emergency Contacts</div></div>
+          <div class="panel-body">
+            <div class="sos-grid">
+              <a href="tel:102" class="sos-contact red"><div class="sos-contact-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#ambulance"></use></svg></div><div><div class="sos-contact-name">AMBULANCE</div><div class="sos-contact-num">102</div></div></a>
+              <a href="tel:100" class="sos-contact blue"><div class="sos-contact-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#shield-alert"></use></svg></div><div><div class="sos-contact-name">POLICE</div><div class="sos-contact-num">100</div></div></a>
+              <a href="tel:101" class="sos-contact orange"><div class="sos-contact-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#flame"></use></svg></div><div><div class="sos-contact-name">FIRE</div><div class="sos-contact-num">101</div></div></a>
+              <a href="tel:112" class="sos-contact red"><div class="sos-contact-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#life-buoy"></use></svg></div><div><div class="sos-contact-name">EMERGENCY</div><div class="sos-contact-num">112</div></div></a>
+              <a href="tel:9152987821" class="sos-contact green"><div class="sos-contact-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#brain"></use></svg></div><div><div class="sos-contact-name">MENTAL HEALTH</div><div class="sos-contact-num">iCall</div></div></a>
+              <a href="tel:1800116117" class="sos-contact purple"><div class="sos-contact-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg></div><div><div class="sos-contact-name">POISON CONTROL</div><div class="sos-contact-num">1800-116-117</div></div></a>
+              <a href="tel:14567" class="sos-contact teal"><div class="sos-contact-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#users"></use></svg></div><div><div class="sos-contact-name">ELDER HELPLINE</div><div class="sos-contact-num">14567</div></div></a>
+              <a href="tel:1097" class="sos-contact gray"><div class="sos-contact-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#stethoscope"></use></svg></div><div><div class="sos-contact-name">HIV HELPLINE</div><div class="sos-contact-num">1097</div></div></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-header"><div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#clipboard-list"></use></svg></span> Emergency First Steps</div></div>
+          <div class="panel-body" style="display:flex;flex-direction:column;gap:14px;">
+            <div class="emergency-step"><strong>1.</strong> Stay calm and assess the situation safely.</div>
+            <div class="emergency-step"><strong>2.</strong> Call 112 (all emergencies) or 102 (ambulance).</div>
+            <div class="emergency-step"><strong>3.</strong> Give your exact location and describe the emergency clearly.</div>
+            <div class="emergency-step"><strong>4.</strong> Don't move an injured person unless in immediate danger.</div>
+            <div class="emergency-step"><strong>5.</strong> If breathing has stopped and you're trained, start CPR.</div>
+            <div class="emergency-step"><strong>6.</strong> Keep the person warm, conscious and reassured.</div>
+            <div class="emergency-step"><strong>7.</strong> Clear the area and send someone to guide emergency services.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECORDS PANEL -->
+    <div class="panels" id="panel-records">
+      <div class="two-col">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#chart-column"></use></svg></span> My Vitals</div>
+            <span style="font-size:0.72rem;color:var(--text-dimmer);font-family:'Nunito',sans-serif;">Click a card to add or edit a reading</span>
+          </div>
+          <div class="panel-body">
+            <div class="vitals-grid" id="vitalsGridRecords"></div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg></span> Current Medications</div>
+            <button class="btn-nav-action" type="button" style="font-size:0.75rem;padding:7px 16px;" data-action="open-add-med">+ Add</button>
+          </div>
+          <div class="panel-body" id="recordsMedicationsContainer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /dash-main -->
+
+  <!-- EDIT VITAL MODAL -->
+  <div class="edit-vital-modal-overlay" id="editVitalModal" data-action="overlay-edit-vital">
+    <div class="edit-vital-modal" role="dialog" aria-modal="true" aria-labelledby="editVitalTitle">
+      <button class="modal-close-btn" type="button" data-action="close-edit-vital" style="position:absolute;top:12px;right:12px;" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#x"></use></svg></button>
+      <h3 id="editVitalTitle"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pencil"></use></svg> Edit Vital</h3>
+      <div class="edit-vital-field">
+        <label id="editVitalLabel" for="editVitalInput">Value</label>
+        <input type="text" id="editVitalInput" placeholder="" inputmode="decimal" maxlength="12" autocomplete="off">
+        <div class="auth-error" id="editVitalError" role="alert"></div>
+      </div>
+      <p style="font-size:0.75rem;color:var(--text-dimmer);margin-bottom:18px;" id="editVitalHint"></p>
+      <div style="display:flex;gap:10px;">
+        <button class="modal-btn cancel" type="button" style="flex:1;" data-action="close-edit-vital">Cancel</button>
+        <button class="modal-btn cancel" type="button" id="clearVitalBtn" data-action="clear-vital" style="flex:1;display:none;">Clear</button>
+        <button class="modal-btn" style="flex:2;background:var(--blue-dark);color:#fff;" data-action="save-vital" type="button"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#check"></use></svg> Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD MEDICATION MODAL -->
+  <div class="add-med-modal-overlay" id="addMedModal" data-action="overlay-add-med">
+    <div class="add-med-modal" role="dialog" aria-modal="true" aria-labelledby="addMedTitle">
+      <button class="modal-close-btn" type="button" data-action="close-add-med" style="position:absolute;top:12px;right:12px;" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#x"></use></svg></button>
+      <h3 id="addMedTitle"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg> Add Medication</h3>
+      <div class="add-med-field">
+        <label for="newMedName">Medication Name *</label>
+        <input type="text" id="newMedName" maxlength="100" autocomplete="off" placeholder="e.g. Metformin 500mg" list="medSuggestions">
+        <datalist id="medSuggestions"></datalist>
+      </div>
+      <div class="add-med-field">
+        <label for="newMedTime">When to Take *</label>
+        <input type="text" id="newMedTime" maxlength="100" placeholder="e.g. Morning with breakfast">
+      </div>
+      <div class="add-med-field">
+        <label for="newMedStatus">Status</label>
+        <select id="newMedStatus">
+          <option value="pending">Pending</option>
+          <option value="taken">Taken</option>
+          <option value="missed">Missed</option>
+        </select>
+      </div>
+      <div id="addMedError" role="alert" style="color:#e53e3e;font-size:0.8rem;margin-bottom:12px;display:none;"></div>
+      <div style="display:flex;gap:10px;margin-top:4px;">
+        <button class="modal-btn cancel" type="button" style="flex:1;" data-action="close-add-med">Cancel</button>
+        <button class="modal-btn" style="flex:2;background:var(--green);color:#fff;" data-action="confirm-add-med" type="button"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#check"></use></svg> Add Medication</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-dashboard -->
+
+<script src="assets/vendor/leaflet/leaflet.js"></script>
+<script src="config.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

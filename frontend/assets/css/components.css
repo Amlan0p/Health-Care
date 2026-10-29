@@ -1,0 +1,32 @@
+/* ═══════════════════════════════
+   PAGE SYSTEM (3 pages)
+═══════════════════════════════ */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ═══════════════════════════════
+   SHARED COMPONENTS
+═══════════════════════════════ */
+/* Read progress bar */
+.read-progress {
+  position: fixed; top: 0; left: 0; z-index: 9999;
+  height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--green), var(--blue-mid));
+  transition: width 0.1s linear;
+  box-shadow: 0 0 6px rgba(110,194,91,0.5);
+}
+
+.ripple { position:absolute; border-radius:50%; transform:scale(0); animation:rippleAnim 0.6s linear; background:rgba(255,255,255,0.35); pointer-events:none; }
+@keyframes rippleAnim { to{transform:scale(4);opacity:0} }
+
+.back-top {
+  position: fixed; bottom: 28px; right: 28px; z-index: 200;
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--blue-dark); color: white; border: none;
+  font-size: 1.2rem; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(26,63,111,0.4);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s;
+}
+.back-top.show { opacity:1; transform:translateY(0); }
+.back-top:hover { background: var(--blue-mid); transform: translateY(-3px); }

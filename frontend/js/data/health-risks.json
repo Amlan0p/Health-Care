@@ -1,0 +1,27 @@
+{
+ "_meta": {
+  "notice": "General public-health information, not medical advice."
+ },
+ "risks": [
+  {
+   "icon": "bug",
+   "title": "Dengue Fever",
+   "desc": "More common during and after the monsoon. Symptoms can include high fever, severe headache, joint pain and rash. Seek medical care if you suspect dengue, and avoid self-medicating with anti-inflammatory painkillers unless a doctor advises."
+  },
+  {
+   "icon": "droplets",
+   "title": "Cholera / Water-Borne Illness",
+   "desc": "More likely after flooding or with unsafe water. Drink only filtered or boiled water. Watery diarrhoea and dehydration need prompt medical attention; oral rehydration solution helps while you seek care."
+  },
+  {
+   "icon": "sun",
+   "title": "Heat Stroke",
+   "desc": "A risk in peak summer. Stay hydrated and avoid direct sun in the hottest hours. If someone is confused or unconscious in the heat, call 112 immediately."
+  },
+  {
+   "icon": "wind",
+   "title": "Air Pollution / Respiratory Issues",
+   "desc": "Air quality can be poor in urban areas. People with asthma should keep their prescribed inhaler with them and follow their doctor's advice on poor-air days."
+  }
+ ]
+}
