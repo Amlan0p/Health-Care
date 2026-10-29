@@ -1,0 +1,19 @@
+/* ═══════════════════════════════
+   FOOTER (from interface-1)
+═══════════════════════════════ */
+footer {
+  background: var(--blue-dark); color: rgba(255,255,255,0.75);
+  padding: 48px 60px 28px;
+  transition: var(--transition);
+}
+body.dark footer { background: #07101e; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
+.f-brand-name { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.3rem; color: white; margin-bottom: 10px; }
+.f-brand p { font-size: 0.82rem; line-height: 1.7; }
+.f-col h4 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.75rem; letter-spacing: 0.1em; color: white; text-transform: uppercase; margin-bottom: 14px; }
+.f-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.f-col ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+.f-col ul li a:hover { color: white; }
+.f-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; }
+.f-status { display: flex; align-items: center; gap: 7px; }
+.f-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); animation: livePulse 1.5s infinite; }

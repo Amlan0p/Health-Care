@@ -1,0 +1,131 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "notice": "SAMPLE DIRECTORY. These doctor profiles are fictional placeholders and are not affiliated with the hospitals named. Saving an appointment only records it in your own account; it does not contact or book anything with a doctor or hospital."
+  },
+  "slots": [
+    "09:00",
+    "09:30",
+    "10:00",
+    "10:30",
+    "11:00",
+    "11:30",
+    "12:00",
+    "14:00",
+    "14:30",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30",
+    "17:00",
+    "17:30",
+    "18:00"
+  ],
+  "doctors": [
+    {
+      "id": "doc-001",
+      "name": "Dr. Subhash Mondal",
+      "spec": "Cardiologist",
+      "hospital": "SSKM Hospital",
+      "icon": "heart"
+    },
+    {
+      "id": "doc-002",
+      "name": "Dr. Priya Banerjee",
+      "spec": "General Physician",
+      "hospital": "Apollo Gleneagles",
+      "icon": "stethoscope"
+    },
+    {
+      "id": "doc-003",
+      "name": "Dr. Ritu Ghosh",
+      "spec": "Dermatologist",
+      "hospital": "Fortis Hospital",
+      "icon": "spray-can"
+    },
+    {
+      "id": "doc-004",
+      "name": "Dr. Arjun Mukherjee",
+      "spec": "Diabetologist",
+      "hospital": "AMRI Hospital",
+      "icon": "droplet"
+    },
+    {
+      "id": "doc-005",
+      "name": "Dr. Sonal Sharma",
+      "spec": "Pulmonologist",
+      "hospital": "Medica Superspecialty",
+      "icon": "wind"
+    },
+    {
+      "id": "doc-006",
+      "name": "Dr. Rajesh Kapoor",
+      "spec": "Neurologist",
+      "hospital": "Apollo Gleneagles",
+      "icon": "brain"
+    },
+    {
+      "id": "doc-007",
+      "name": "Dr. Meena Iyer",
+      "spec": "Gynaecologist",
+      "hospital": "Fortis Hospital",
+      "icon": "flower-2"
+    },
+    {
+      "id": "doc-008",
+      "name": "Dr. Dipankar Das",
+      "spec": "Orthopaedic Surgeon",
+      "hospital": "RG Kar Medical College",
+      "icon": "bone"
+    },
+    {
+      "id": "doc-009",
+      "name": "Dr. Sunita Rao",
+      "spec": "ENT Specialist",
+      "hospital": "NRS Medical College",
+      "icon": "ear"
+    },
+    {
+      "id": "doc-010",
+      "name": "Dr. Vikram Bose",
+      "spec": "Gastroenterologist",
+      "hospital": "AMRI Hospital",
+      "icon": "utensils-crossed"
+    },
+    {
+      "id": "doc-011",
+      "name": "Dr. Kavita Nair",
+      "spec": "Psychiatrist",
+      "hospital": "Medical College KOL",
+      "icon": "heart-handshake"
+    },
+    {
+      "id": "doc-012",
+      "name": "Dr. Samit Choudhury",
+      "spec": "Nephrologist",
+      "hospital": "SSKM Hospital",
+      "icon": "bean"
+    },
+    {
+      "id": "doc-013",
+      "name": "Dr. Ananya Sen",
+      "spec": "Endocrinologist",
+      "hospital": "Apollo Gleneagles",
+      "icon": "test-tube"
+    },
+    {
+      "id": "doc-014",
+      "name": "Dr. Harish Kumar",
+      "spec": "Ophthalmologist",
+      "hospital": "Medica Superspecialty",
+      "icon": "eye"
+    },
+    {
+      "id": "doc-015",
+      "name": "Dr. Pallavi Joshi",
+      "spec": "Paediatrician",
+      "hospital": "Fortis Hospital",
+      "icon": "baby"
+    }
+  ]
+}

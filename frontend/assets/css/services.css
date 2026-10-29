@@ -1,0 +1,72 @@
+/* ═══════════════════════════════
+   SERVICES SECTION (from interface-1)
+═══════════════════════════════ */
+#services {
+  background: var(--bg);
+  padding: 80px 60px;
+  transition: var(--transition);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.service-card {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 20px;
+  border: 1.5px solid rgba(189,217,245,0.5);
+  padding: 30px 26px;
+  box-shadow: 0 8px 32px rgba(42,100,170,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark .service-card {
+  background: rgba(30,41,59,0.55);
+  border: 1.5px solid rgba(30,48,80,0.6);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue-mid), var(--green));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(42,100,170,0.15);
+  border-color: var(--blue-mid);
+}
+
+.service-icon {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, var(--sky), var(--blue-light));
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  transition: transform 0.2s;
+}
+body.dark .service-icon {
+  background: linear-gradient(135deg, #0d2340, #1a3a5c);
+}
+.service-card:hover .service-icon { transform: scale(1.08); }
+
+.service-card h3 {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 1.05rem; color: var(--text-dark);
+  margin-bottom: 10px; line-height: 1.3;
+}
+.service-card p {
+  font-size: 0.85rem; color: var(--text-body); line-height: 1.65;
+}

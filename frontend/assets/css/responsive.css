@@ -1,0 +1,231 @@
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE LAYER
+   Adapts the existing layout; desktop (≥1025px) is intentionally left as the original.
+   Breakpoints: 1024 (small laptop / large tablet) · 960 (tablet) · 768 · 600 · 480 · 380 (small phones)
+   Also: landscape phones, touch targets, tall dialogs, prefers-reduced-motion.
+═══════════════════════════════════════════════════════════════ */
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { overflow-x: clip; }
+img, video { max-width: 100%; height: auto; }
+.ticker-scroll, .chat-messages, .msg-bubble, .hosp-name, .appt-doc, .med-name { overflow-wrap: anywhere; }
+#panel-ai .chat-messages { height: 520px; }               /* was an inline style on the element */
+#userBtn { max-width: 190px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── Dialogs taller than the screen must scroll instead of being clipped ───────── */
+.news-modal-overlay, .auth-modal-overlay, .sos-modal-overlay,
+.edit-vital-modal-overlay, .add-med-modal-overlay { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom)); }
+.news-modal-box, .auth-container, .sos-modal, .edit-vital-modal, .add-med-modal { max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); overflow-y: auto; margin: auto; }
+.auth-container { position: relative; }
+
+/* ── Touch devices: comfortable hit areas, no iOS focus-zoom ────────────────────── */
+@media (pointer: coarse) {
+  button, .btn-nav-action, .modal-btn, .btn-auth, .check-btn, .map-btn, .quick-q-btn, .ftab, .auth-tab,
+  .dash-nav-tabs button, .send-btn, .nl-btn, .btn-cf-send, .btn-signin, .btn-social, .btn-load, .card-btn,
+  .nav-links a, .row-del { min-height: 44px; }
+  .row-del { min-width: 44px; }
+  .modal-close-btn, .auth-modal-close, .back-top { min-width: 44px; min-height: 44px; }
+  .tag, .trend-item { min-height: 40px; }
+  /* The theme switch keeps its look; an invisible pseudo-element enlarges its tap area instead */
+  .theme-toggle { position: relative; }
+  .theme-toggle::before { content: ''; position: absolute; inset: -10px -6px; }
+}
+@media (max-width: 768px) {
+  input, select, textarea, .form-input, .cf-input, .chat-input, .search-inp, .nl-inp { font-size: 16px; }
+}
+
+/* ═══ ≤1024px — small laptops / large tablets ══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  #page-home nav, #page-home nav.scrolled, nav.main-nav, nav.main-nav.scrolled { padding-left: 32px; padding-right: 32px; }
+  #home { padding: 0 32px 60px; }
+  #services, #news-section, #contact { padding-left: 32px; padding-right: 32px; }
+  footer { padding-left: 32px; padding-right: 32px; }
+  .dash-main { padding: 28px 32px; }
+  .news-layout { grid-template-columns: minmax(0, 1fr) 280px; gap: 28px; }
+  .hero-left { width: 420px; }
+  .hero-right h1 { font-size: 2.8rem; }
+  .dash-nav-tabs button { padding: 7px 10px; font-size: .8rem; }
+  .footer-grid { gap: 28px; }
+}
+
+/* ═══ ≤960px — tablets (portrait) ═══════════════════════════════════════════════════ */
+@media (max-width: 960px) {
+  /* Home nav → hamburger menu */
+  #page-home nav { flex-wrap: wrap; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1.5px solid var(--border); background: var(--surface, #fff); color: var(--blue-dark); border-radius: 12px; cursor: pointer; font-size: 1.25rem; }
+  #homeNav .nav-links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0;
+    background: var(--card-bg, #fff); border-bottom: 1px solid var(--border); box-shadow: 0 14px 30px rgba(0,0,0,.12);
+    padding: 8px 20px 14px; list-style: none; z-index: 5;
+  }
+  body.dark #homeNav .nav-links { background: #0f172a; }
+  #homeNav.nav-open .nav-links { display: flex; }
+  #homeNav .nav-links li { border-bottom: 1px solid var(--border); }
+  #homeNav .nav-links li:last-child { border-bottom: 0; }
+  #homeNav .nav-links a { display: block; padding: 14px 4px; }
+  #homeNav .nav-links a::after { display: none; }
+
+  /* Dashboard nav: wrap, with the tab strip scrolling horizontally (it was hidden entirely before) */
+  nav.main-nav { flex-wrap: wrap; row-gap: 8px; }
+  nav.main-nav .dash-nav-tabs {
+    display: flex; order: 3; width: 100%; overflow-x: auto; flex-wrap: nowrap; gap: 4px;
+    padding-bottom: 6px; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  nav.main-nav .dash-nav-tabs::-webkit-scrollbar { display: none; }
+  nav.main-nav .dash-nav-tabs button { flex: 0 0 auto; padding: 9px 14px; }
+
+  /* Hero: stack, illustration scales as a unit instead of overflowing */
+  #home { flex-direction: column; padding: 24px 24px 90px; gap: 20px; min-height: auto; justify-content: flex-start; }
+  .hero-left { --hs: .85; width: 100%; max-width: 100%; height: calc(400px * var(--hs)); display: flex; justify-content: center; overflow: visible; }
+  .illustration { flex: none; width: 480px; height: 400px; transform: scale(var(--hs)); transform-origin: top center; margin-left: calc(60px * var(--hs)); }
+  .hero-right { max-width: 560px; text-align: center; margin: 0 auto; }
+  .hero-right h1 { font-size: 2.4rem; }
+  .scroll-cta { display: none; }
+
+  #services, #news-section, #contact { padding: 60px 24px; }
+  .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .news-layout { grid-template-columns: minmax(0, 1fr); }
+  .news-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .news-card.wide { flex-direction: column; }
+  .news-card.wide .card-img { width: 100%; height: 180px; min-height: 0; }
+  .contact-inner { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .footer-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  footer { padding: 36px 24px 24px; }
+
+  .dash-main { padding: 24px 20px; }
+  .two-col { grid-template-columns: minmax(0, 1fr); }
+  .hosp-quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sos-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  #demoBanner { padding: 10px 20px !important; flex-wrap: wrap; }
+}
+
+/* ═══ ≤768px ═════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  #page-home nav, #page-home nav.scrolled, nav.main-nav, nav.main-nav.scrolled { padding-left: 18px; padding-right: 18px; }
+  .news-grid { grid-template-columns: minmax(0, 1fr); }
+  .services-grid { grid-template-columns: minmax(0, 1fr); }
+  .dash-hero { padding: 28px 0 24px; }
+  .hero-stats { gap: 28px; }
+  .quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .symptom-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .map-container { height: 340px; }
+  #panel-ai .chat-messages { height: min(520px, 62vh); }
+  .panel-header { flex-wrap: wrap; gap: 8px; }
+  .section-header h2, .news-header h2, #contact h2 { font-size: 1.8rem; }
+  .ticker-label { padding: 10px 12px; }
+  .ftab { padding: 8px 14px; }
+}
+
+/* ═══ ≤600px — phones ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  #home { padding: 16px 16px 70px; }
+  .hero-left { --hs: .72; }
+  .hero-right h1 { font-size: 2rem; letter-spacing: -.5px; }
+  .hero-right p { font-size: .95rem; }
+  .btn-start { padding: 14px 28px; }
+  #services, #news-section, #contact { padding: 48px 16px; }
+  .contact-form-wrap { padding: 24px 18px; }
+  .footer-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+  .f-brand { grid-column: 1 / -1; }
+  .f-bottom { flex-direction: column; gap: 10px; align-items: flex-start; }
+  .news-modal-box { padding: 28px 20px; width: 100%; }
+  .auth-container { padding: 40px 22px 28px; }
+  .dash-main { padding: 18px 14px; }
+  .quick-grid { grid-template-columns: minmax(0, 1fr); }
+  .tip-card { padding: 14px 16px; }
+  .sos-modal { padding: 28px 20px; }
+  .appt-modal { padding: 26px 18px; }
+  .appt-modal [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  .hero-stats { gap: 18px 26px; }
+  .stat-num { font-size: 1.6rem; }
+  .vitals-grid { gap: 10px; }
+  .msg-bubble { max-width: 88%; }
+  .search-wrap, .nl-card .nl-inp { max-width: 100%; }
+}
+
+/* ═══ ≤480px — common phones (375 / 390 / 414 sit around here) ═════════════════════ */
+@media (max-width: 480px) {
+  #page-home nav, #page-home nav.scrolled, nav.main-nav, nav.main-nav.scrolled { padding: 10px 14px; }
+  .home-logo { font-size: 1.25rem; }
+  .logo-wrap { font-size: 1.15rem; }
+  .btn-signin { padding: 9px 14px !important; font-size: .68rem !important; }
+  .nav-right { gap: 8px; }
+  .hero-left { --hs: .66; }
+  .hero-right h1 { font-size: 1.8rem; }
+  .symptom-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .symptom-tag { padding: 10px 8px; font-size: .76rem; }
+  .sos-grid { grid-template-columns: minmax(0, 1fr); }
+  .hosp-quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-grid { grid-template-columns: minmax(0, 1fr); }
+  .section-header h2 { font-size: 1.55rem; }
+  .map-container { height: 300px; }
+  .panel-header { padding: 14px 16px 12px; }
+  .panel-body { padding-left: 14px; padding-right: 14px; }
+  .appt-item { flex-wrap: wrap; padding-right: 40px; }
+  .appt-item .appt-info { flex: 1 1 140px; min-width: 0; }
+  .med-item { flex-wrap: wrap; }
+  .med-item .med-info { flex: 1 1 120px; min-width: 0; }
+  .hospital-item { padding: 12px; }
+  .nav-right .sos-btn { padding: 8px 12px; font-size: .72rem; }
+  #userBtn { max-width: 110px; }
+  .dash-nav-tabs button { font-size: .8rem; }
+  .toast { left: 12px; right: 12px; transform: none; max-width: none; }
+  .vital-card { padding: 14px 10px; }
+  .edit-vital-modal, .add-med-modal { padding: 26px 18px; }
+}
+
+/* ═══ ≤380px — small phones (320 / 360) ═════════════════════════════════════════════ */
+@media (max-width: 380px) {
+  .home-logo { font-size: 1.05rem; }
+  .logo-wrap { font-size: 1rem; }
+  .logo-icon-nav { display: none; }
+  .btn-signin { padding: 8px 10px !important; font-size: .6rem !important; letter-spacing: 0; }
+  .theme-toggle { transform: scale(.88); transform-origin: right center; margin-left: -4px; }
+  .nav-toggle { width: 40px; height: 40px; }
+  .hero-left { --hs: .58; }
+  .hero-right h1 { font-size: 1.6rem; }
+  .dash-hero h1 { font-size: 1.7rem; }
+  .hero-stats { gap: 14px 20px; }
+  .stat-num { font-size: 1.35rem; }
+  .auth-container { padding: 36px 16px 24px; }
+  .contact-form-wrap { padding: 20px 14px; }
+  .ftab { padding: 7px 11px; font-size: .74rem; }
+  .nav-right .sos-btn { font-size: .66rem; padding: 7px 9px; }
+  #userBtn { max-width: 84px; padding: 7px 10px !important; font-size: .68rem !important; }
+  .vitals-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+  .news-modal-box h2 { font-size: 1.25rem; }
+}
+
+/* ═══ Landscape phones / short viewports ═══════════════════════════════════════════ */
+@media (max-height: 520px) and (orientation: landscape) {
+  #home { min-height: auto; padding-top: 12px; padding-bottom: 56px; }
+  #page-home nav, nav.main-nav { position: static; }          /* sticky bars would eat half the screen */
+  .dash-hero { padding: 16px 0 14px; }
+  .dash-hero p { margin-bottom: 16px; }
+  .sos-modal, .auth-container, .news-modal-box, .edit-vital-modal, .add-med-modal { max-height: calc(100vh - 16px); max-height: calc(100dvh - 16px); }
+  .sos-modal-icon { width: 52px; height: 52px; margin-bottom: 10px; }
+  #panel-ai .chat-messages { height: 55vh; }
+  .map-container { height: 70vh; }
+  .back-top { bottom: 12px; right: 12px; }
+}
+
+/* ═══ Wide screens: keep the original look; just cap very wide dashboards ══════════ */
+@media (min-width: 1600px) { .dash-main { max-width: 1480px; } }
+
+/* ═══ prefers-reduced-motion ════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important; animation-iteration-count: 1 !important; animation-delay: 0s !important;
+    transition-duration: .001ms !important; transition-delay: 0s !important; scroll-behavior: auto !important;
+  }
+  .ticker-track { overflow-x: auto; }
+  .ticker-scroll { animation: none !important; }
+  .particle, .stars { display: none !important; }
+  .reveal, .news-card, .s-card, .service-card, #newsHeader, #servicesHeader, #tickerWrap, #filterRow { opacity: 1 !important; transform: none !important; }
+  .icon-spin { animation: none; }
+}
+
+/* Grid/flex children must be allowed to shrink below their content width (prevents horizontal scroll) */
+.news-layout > *, .news-grid > *, .two-col > *, .contact-inner > *, .footer-grid > *, .services-grid > *, .quick-grid > *,
+.symptom-grid > *, .vitals-grid > *, .sos-grid > *, .form-row > * { min-width: 0; }
+.news-layout, .news-grid, .two-col, .contact-inner, .footer-grid, .services-grid { min-width: 0; }
