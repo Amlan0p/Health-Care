@@ -5,26 +5,19 @@ const cors = require('cors');
 const LOCALHOST_RE = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/;
 
 function securityHeaders() {
-  return helmet({
-    contentSecurityPolicy: {
-      useDefaults: false,
-      directives: {
-        'default-src': ["'self'"],
-        'script-src': ["'self'"],
-        // The existing UI relies on inline style attributes; scripts stay strictly same-origin.
-        'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
-        'font-src': ["'self'", 'https://fonts.gstatic.com'],
-        'img-src': ["'self'", 'data:', 'https://*.tile.openstreetmap.org'],
-        'connect-src': ["'self'", 'https://overpass-api.de'],
-        'object-src': ["'none'"],
-        'base-uri': ["'self'"],
-        'form-action': ["'self'"],
-        'frame-ancestors': ["'none'"],
-      },
-    },
-    crossOriginEmbedderPolicy: false, // map tiles are cross-origin images
+  const helmetMiddleware = helmet({
+    contentSecurityPolicy: false,
+    frameguard: false,
+    crossOriginResourcePolicy: false,
+    crossOriginOpenerPolicy: false,
+    crossOriginEmbedderPolicy: false,
     referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
   });
+
+  return (req, res, next) => {
+    res.setHeader('Permissions-Policy', 'geolocation=*');
+    helmetMiddleware(req, res, next);
+  };
 }
 
 /**

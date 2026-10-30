@@ -1,28 +1,8 @@
-# dependencies
 node_modules/
-
-# secrets / local config — NEVER commit these
-.env
-.env.*
-!.env.example
-*.pem
-*.key
-
-# local databases and dumps
-*.db
-*.db-shm
-*.db-wal
-*.sqlite
-*.sqlite3
-*.sql.gz
-*.dump
-
-# logs, caches, OS/editor files
-*.log
-npm-debug.log*
-.cache/
+build/
+dist/
 coverage/
 .DS_Store
-Thumbs.db
-.vscode/
-.idea/
+*.log
+.env*
+!.env.example

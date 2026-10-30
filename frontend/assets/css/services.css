@@ -1,72 +1,108 @@
-/* ═══════════════════════════════
-   SERVICES SECTION (from interface-1)
-═══════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   SERVICES SECTION
+   Clean clinical bento grid, tactile cards, subtle hover lift
+═══════════════════════════════════════════════════════════════ */
+
 #services {
-  background: var(--bg);
-  padding: 80px 60px;
-  transition: var(--transition);
+  padding: 44px 48px 56px;
+  max-width: 1360px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 12px;
+}
+
+.section-header p {
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.65;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 40px;
+  gap: 24px;
 }
 
 .service-card {
-  background: rgba(255,255,255,0.55);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-radius: 20px;
-  border: 1.5px solid rgba(189,217,245,0.5);
-  padding: 30px 26px;
-  box-shadow: 0 8px 32px rgba(42,100,170,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
-  cursor: pointer;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 26px 26px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-spring), border-color 0.25s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-body.dark .service-card {
-  background: rgba(30,41,59,0.55);
-  border: 1.5px solid rgba(30,48,80,0.6);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-}
-
-.service-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, var(--blue-mid), var(--green));
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.3s ease;
-}
-.service-card:hover::before { transform: scaleX(1); }
 .service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(42,100,170,0.15);
-  border-color: var(--blue-mid);
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-lg);
 }
 
 .service-icon {
-  width: 56px; height: 56px;
-  background: linear-gradient(135deg, var(--sky), var(--blue-light));
-  border-radius: 16px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem;
-  margin-bottom: 18px;
-  transition: transform 0.2s;
+  width: 52px;
+  height: 52px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition: transform 0.25s var(--ease-spring), background 0.25s ease;
 }
-body.dark .service-icon {
-  background: linear-gradient(135deg, #0d2340, #1a3a5c);
+
+.service-icon .icon {
+  width: 24px;
+  height: 24px;
 }
-.service-card:hover .service-icon { transform: scale(1.08); }
+
+.service-card:hover .service-icon {
+  transform: scale(1.08);
+  background: var(--primary);
+  color: #ffffff;
+}
 
 .service-card h3 {
-  font-family: 'Nunito', sans-serif; font-weight: 800;
-  font-size: 1.05rem; color: var(--text-dark);
-  margin-bottom: 10px; line-height: 1.3;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  line-height: 1.25;
 }
+
 .service-card p {
-  font-size: 0.85rem; color: var(--text-body); line-height: 1.65;
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.55;
 }

@@ -37,12 +37,13 @@ img, video { max-width: 100%; height: auto; }
 /* ═══ ≤1024px — small laptops / large tablets ══════════════════════════════════════ */
 @media (max-width: 1024px) {
   #page-home nav, #page-home nav.scrolled, nav.main-nav, nav.main-nav.scrolled { padding-left: 32px; padding-right: 32px; }
-  #home { padding: 0 32px 60px; }
+  #home { padding: 48px 32px 44px; }
   #services, #news-section, #contact { padding-left: 32px; padding-right: 32px; }
   footer { padding-left: 32px; padding-right: 32px; }
   .dash-main { padding: 28px 32px; }
   .news-layout { grid-template-columns: minmax(0, 1fr) 280px; gap: 28px; }
   .hero-left { width: 420px; }
+  #services { padding-top: 40px; }
   .hero-right h1 { font-size: 2.8rem; }
   .dash-nav-tabs button { padding: 7px 10px; font-size: .8rem; }
   .footer-grid { gap: 28px; }
@@ -74,15 +75,22 @@ img, video { max-width: 100%; height: auto; }
   nav.main-nav .dash-nav-tabs::-webkit-scrollbar { display: none; }
   nav.main-nav .dash-nav-tabs button { flex: 0 0 auto; padding: 9px 14px; }
 
-  /* Hero: stack, illustration scales as a unit instead of overflowing */
-  #home { flex-direction: column; padding: 24px 24px 90px; gap: 20px; min-height: auto; justify-content: flex-start; }
-  .hero-left { --hs: .85; width: 100%; max-width: 100%; height: calc(400px * var(--hs)); display: flex; justify-content: center; overflow: visible; }
-  .illustration { flex: none; width: 480px; height: 400px; transform: scale(var(--hs)); transform-origin: top center; margin-left: calc(60px * var(--hs)); }
-  .hero-right { max-width: 560px; text-align: center; margin: 0 auto; }
-  .hero-right h1 { font-size: 2.4rem; }
-  .scroll-cta { display: none; }
+  /* Hero: stack animated ECG heartbeat telemetry on TOP of editorial copy on mobile */
+  #home { flex-direction: column; padding: 28px 20px 28px; gap: 28px; min-height: auto; justify-content: flex-start; }
+  .hero-left { flex: 0 0 auto; width: 100%; max-width: 480px; margin: 0 auto; order: 1; }
+  /* chips sit in normal flow around the card so they never cover its title/metrics */
+  .telemetry-hub { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+  .hero-chip { position: static; animation: none; }
+  .chip-top-left { order: -1; align-self: flex-start; }
+  .chip-bottom-right { align-self: flex-end; }
+  .hero-right { flex: 0 0 auto; width: 100%; max-width: 600px; text-align: center; margin: 0 auto; order: 2; }
+  .hero-right p { margin-left: auto; margin-right: auto; }
+  .hero-right h1 { font-size: 2.2rem; }
+  .hero-actions { justify-content: center; }
+  .hero-proof-bar { justify-content: center; }
+  .scroll-cta { display: none !important; }
 
-  #services, #news-section, #contact { padding: 60px 24px; }
+  #services, #news-section, #contact { padding: 48px 24px; }
   .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .news-layout { grid-template-columns: minmax(0, 1fr); }
   .news-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
@@ -112,35 +120,73 @@ img, video { max-width: 100%; height: auto; }
   #panel-ai .chat-messages { height: min(520px, 62vh); }
   .panel-header { flex-wrap: wrap; gap: 8px; }
   .section-header h2, .news-header h2, #contact h2 { font-size: 1.8rem; }
+  .section-header { margin-bottom: 30px; }
   .ticker-label { padding: 10px 12px; }
   .ftab { padding: 8px 14px; }
 }
 
 /* ═══ ≤600px — phones ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 600px) {
-  #home { padding: 16px 16px 70px; }
-  .hero-left { --hs: .72; }
-  .hero-right h1 { font-size: 2rem; letter-spacing: -.5px; }
-  .hero-right p { font-size: .95rem; }
-  .btn-start { padding: 14px 28px; }
-  #services, #news-section, #contact { padding: 48px 16px; }
-  .contact-form-wrap { padding: 24px 18px; }
+  #home { padding: 20px 16px 24px; gap: 22px; }
+  .hero-left { margin: 0 auto; }
+  .telemetry-hub { gap: 10px; }
+  .hero-kicker { margin-bottom: 10px; letter-spacing: .08em; font-size: .7rem; }
+  .hero-right h1 { font-size: 2rem; letter-spacing: -.02em; margin-bottom: 12px; }
+  .hero-right p { font-size: .92rem; line-height: 1.55; margin-bottom: 20px; }
+  .hero-actions { gap: 10px; margin-bottom: 22px; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; padding: 12px 18px; }
+  .hero-chip { padding: 8px 12px; gap: 10px; }
+  .chip-icon { width: 30px; height: 30px; }
+  .chip-val { font-size: 0.76rem; }
+  .telemetry-card { padding: 16px 14px; }
+  .telemetry-header { margin-bottom: 12px; padding-bottom: 10px; }
+  .telemetry-title { font-size: .68rem; letter-spacing: .05em; }
+  .telemetry-badge { font-size: .64rem; padding: 3px 8px; }
+  .ecg-container { height: 72px; margin-bottom: 12px; }
+  .telemetry-metrics { gap: 8px; }
+  .metric-box { padding: 10px 9px; }
+  .metric-top { margin-bottom: 6px; }
+  .metric-value { font-size: 1.1rem; }
+  .metric-tag { font-size: .62rem; }
+  .metric-label { font-size: .68rem; line-height: 1.25; }
+  .hero-proof-bar { gap: 10px; padding-top: 16px; }
+  .proof-item { flex: 1 1 0; min-width: 0; align-items: center; text-align: center; }
+  .proof-item strong { font-size: 1rem; white-space: nowrap; }
+  .proof-item span { font-size: .7rem; line-height: 1.25; }
+  .proof-sep { height: 30px; flex: 0 0 1px; }
+  #services, #news-section, #contact { padding: 32px 16px 36px; }
+  .section-header { margin-bottom: 22px; }
+  .section-header p { font-size: .92rem; line-height: 1.55; }
+  .services-grid { gap: 14px; }
+  .service-card { padding: 20px 18px 22px; }
+  .service-icon { width: 46px; height: 46px; margin-bottom: 12px; }
+  .service-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+  .service-card p { font-size: .88rem; line-height: 1.5; }
+  .contact-form-wrap { padding: 20px 16px; }
   .footer-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
   .f-brand { grid-column: 1 / -1; }
   .f-bottom { flex-direction: column; gap: 10px; align-items: flex-start; }
-  .news-modal-box { padding: 28px 20px; width: 100%; }
-  .auth-container { padding: 40px 22px 28px; }
-  .dash-main { padding: 18px 14px; }
+  .news-modal-box { padding: 24px 18px; width: 100%; }
+  .auth-container { padding: 36px 20px 24px; }
+  .dash-main { padding: 16px 14px; }
   .quick-grid { grid-template-columns: minmax(0, 1fr); }
   .tip-card { padding: 14px 16px; }
-  .sos-modal { padding: 28px 20px; }
-  .appt-modal { padding: 26px 18px; }
+  .sos-modal { padding: 24px 18px; }
+  .appt-modal { padding: 24px 18px; }
   .appt-modal [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
-  .hero-stats { gap: 18px 26px; }
-  .stat-num { font-size: 1.6rem; }
+  .hero-stats { gap: 16px 22px; }
+  .stat-num { font-size: 1.5rem; }
   .vitals-grid { gap: 10px; }
   .msg-bubble { max-width: 88%; }
   .search-wrap, .nl-card .nl-inp { max-width: 100%; }
+
+  .btn-signin-full { display: none !important; }
+  .btn-signin-short { display: inline !important; }
+  .btn-signin { padding: 7px 12px !important; font-size: 0.75rem !important; }
+  .nav-right { gap: 8px; }
+  .nav-toggle { width: 38px; height: 38px; border-radius: 10px; }
+  .theme-toggle { width: 48px !important; min-width: 48px !important; max-width: 48px !important; height: 26px !important; min-height: 26px !important; }
+  .back-top { bottom: 16px; right: 16px; width: 40px; height: 40px; }
 }
 
 /* ═══ ≤480px — common phones (375 / 390 / 414 sit around here) ═════════════════════ */
@@ -148,10 +194,11 @@ img, video { max-width: 100%; height: auto; }
   #page-home nav, #page-home nav.scrolled, nav.main-nav, nav.main-nav.scrolled { padding: 10px 14px; }
   .home-logo { font-size: 1.25rem; }
   .logo-wrap { font-size: 1.15rem; }
-  .btn-signin { padding: 9px 14px !important; font-size: .68rem !important; }
+  .btn-signin { padding: 7px 12px !important; font-size: .72rem !important; }
   .nav-right { gap: 8px; }
-  .hero-left { --hs: .66; }
-  .hero-right h1 { font-size: 1.8rem; }
+  .theme-toggle { width: 48px !important; min-width: 48px !important; height: 26px !important; }
+  #home { padding: 18px 14px 22px; gap: 20px; }
+  .hero-right h1 { font-size: 1.7rem; }
   .symptom-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
   .symptom-tag { padding: 10px 8px; font-size: .76rem; }
   .sos-grid { grid-template-columns: minmax(0, 1fr); }
@@ -179,11 +226,15 @@ img, video { max-width: 100%; height: auto; }
   .home-logo { font-size: 1.05rem; }
   .logo-wrap { font-size: 1rem; }
   .logo-icon-nav { display: none; }
-  .btn-signin { padding: 8px 10px !important; font-size: .6rem !important; letter-spacing: 0; }
-  .theme-toggle { transform: scale(.88); transform-origin: right center; margin-left: -4px; }
-  .nav-toggle { width: 40px; height: 40px; }
-  .hero-left { --hs: .58; }
-  .hero-right h1 { font-size: 1.6rem; }
+  .btn-signin { padding: 6px 10px !important; font-size: .72rem !important; letter-spacing: 0; }
+  .theme-toggle { width: 48px !important; min-width: 48px !important; height: 26px !important; margin: 0; }
+  .nav-toggle { width: 36px; height: 36px; }
+  #home { padding: 16px 12px 20px; gap: 18px; }
+  .telemetry-card { padding: 14px 12px; }
+  .metric-box { padding: 9px 7px; }
+  .metric-value { font-size: 1rem; }
+  .proof-item strong { font-size: .92rem; }
+  .hero-right h1 { font-size: 1.55rem; }
   .dash-hero h1 { font-size: 1.7rem; }
   .hero-stats { gap: 14px 20px; }
   .stat-num { font-size: 1.35rem; }

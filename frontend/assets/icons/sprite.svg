@@ -483,4 +483,8 @@
   <symbol id="zap" viewBox="0 0 24 24">
     <path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" />
   </symbol>
+  <symbol id="health-cross" viewBox="0 0 24 24">
+    <rect x="2" y="2" width="20" height="20" rx="6" fill="currentColor" fill-opacity="0.12" />
+    <path d="M10 6h4v4h4v4h-4v4h-4v-4H6v-4h4V6z" fill="currentColor" />
+  </symbol>
 </svg>

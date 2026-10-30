@@ -1,7 +1,7 @@
 'use strict';
 require('dotenv').config();
 const { loadConfig, ConfigError } = require('./config');
-const { createDb } = require('./db');
+const { createDb, createInMemoryDb } = require('./db');
 const { migrate } = require('./db/migrate');
 const { seedDemo } = require('./db/seedDemo');
 const { createApp } = require('./app');
@@ -20,17 +20,17 @@ async function main() {
   }
   config.warnings.forEach((w) => console.warn(`[config] ${w}`));
 
-  const db = createDb(config);
+  let db = createDb(config);
   if (!(await db.ping())) {
-    console.error('[db] Could not connect to the database. Check DATABASE_URL (and DATABASE_SSL for external connections).');
-    process.exit(1);
+    console.warn('[db] Could not connect to PostgreSQL. Activating in-memory mock database.');
+    db = createInMemoryDb();
   }
   await migrate(db);
   if (await seedDemo(db, config)) console.log('[demo] Demo account refreshed with synthetic sample data.');
 
   const app = createApp({ config, db });
-  const server = app.listen(config.port, () => {
-    console.log(`HealthCare API listening on port ${config.port} (${config.nodeEnv})`);
+  const server = app.listen(config.port, '0.0.0.0', () => {
+    console.log(`HealthCare API listening on http://0.0.0.0:${config.port} (${config.nodeEnv})`);
   });
   // Render's load balancer idles at 60s; keep-alive must be longer to avoid sporadic 502s.
   server.keepAliveTimeout = 65_000;

@@ -1,19 +1,110 @@
-/* ═══════════════════════════════
-   FOOTER (from interface-1)
-═══════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER
+   Clean typography, hairline dividers, unboxed metadata
+═══════════════════════════════════════════════════════════════ */
+
 footer {
-  background: var(--blue-dark); color: rgba(255,255,255,0.75);
-  padding: 48px 60px 28px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  color: var(--text-body);
+  padding: 64px 60px 32px;
   transition: var(--transition);
 }
-body.dark footer { background: #07101e; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
-.f-brand-name { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.3rem; color: white; margin-bottom: 10px; }
-.f-brand p { font-size: 0.82rem; line-height: 1.7; }
-.f-col h4 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.75rem; letter-spacing: 0.1em; color: white; text-transform: uppercase; margin-bottom: 14px; }
-.f-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.f-col ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
-.f-col ul li a:hover { color: white; }
-.f-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; }
-.f-status { display: flex; align-items: center; gap: 7px; }
-.f-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); animation: livePulse 1.5s infinite; }
+
+body.dark footer {
+  background: #060910;
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.f-brand-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.f-brand-name .icon {
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
+}
+
+.f-brand p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  max-width: 380px;
+}
+
+.f-col h4 {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.f-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.f-col ul li a {
+  color: var(--text-body);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.f-col ul li a:hover {
+  color: var(--primary);
+}
+
+.f-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.f-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.f-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 6px var(--accent-green);
+  animation: livePulse 2s infinite;
+}

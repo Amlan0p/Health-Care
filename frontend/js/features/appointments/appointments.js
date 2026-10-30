@@ -70,18 +70,27 @@ export function selectDoctor(id) {
   if (!selected) return;
   byId('apptStep1').style.display = 'none'; byId('apptStep2').style.display = 'block';
   byId('selectedDoctorPreview').innerHTML = `
-    <div style="font-size:1.5rem;">${icon(selected.icon)}</div>
-    <div><div style="font-family:'Nunito',sans-serif;font-weight:700;color:var(--text-dark);font-size:0.9rem;">${esc(selected.name)}</div>
-    <div style="font-size:0.78rem;color:var(--text-body);">${esc(selected.spec)} · ${esc(selected.hospital)}</div></div>`;
+    <div class="doctor-ico">${icon(selected.icon)}</div>
+    <div><div style="font-family:var(--font-display);font-weight:700;color:var(--text-dark);font-size:0.95rem;">${esc(selected.name)}</div>
+    <div style="font-size:0.8rem;color:var(--text-body);margin-top:2px;">${esc(selected.spec)} · ${esc(selected.hospital)}</div></div>`;
 }
 export function apptBack() { byId('apptStep2').style.display = 'none'; byId('apptStep1').style.display = 'block'; setError(''); }
 
 export async function confirmAppt() {
   if (!selected) return;
   const date = byId('apptDateInput').value; const time = byId('apptTimeInput').value;
-  if (!date) return setError('Please select a date.');
+  if (!date) return setError('Please select an appointment date.');
   const btn = byId('confirmApptBtn'); btn.disabled = true; setError('');
-  try { appointments.push(await api.createAppointment({ doctorId: selected.id, date, time })); appointments.sort((a, b) => `${a.date}${a.time}`.localeCompare(`${b.date}${b.time}`)); render(); closeBook(); toast('Appointment saved to your account.'); }
-  catch (err) { setError(err.message || 'Could not save the appointment.'); }
-  finally { btn.disabled = false; }
+  try {
+    const appt = await api.createAppointment({ doctorId: selected.id, date, time });
+    appointments.push(appt);
+    appointments.sort((a, b) => `${a.date}${a.time}`.localeCompare(`${b.date}${b.time}`));
+    render();
+    closeBook();
+    toast(`Appointment confirmed with ${selected.name}!`, 'success');
+  } catch (err) {
+    setError(err.message || 'Could not save the appointment. Please try another slot.');
+  } finally {
+    btn.disabled = false;
+  }
 }

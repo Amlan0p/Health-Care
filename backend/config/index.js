@@ -65,8 +65,12 @@ function loadConfig(env = process.env) {
 
   // ── Database ────────────────────────────────────────────────────────────
   const databaseUrl = env.DATABASE_URL || '';
-  if (!databaseUrl) problems.push('DATABASE_URL is required (PostgreSQL connection string).');
-  else if (!/^postgres(ql)?:\/\//i.test(databaseUrl)) problems.push('DATABASE_URL must start with postgres:// or postgresql://');
+  if (!databaseUrl) {
+    if (isProd) problems.push('DATABASE_URL is required (PostgreSQL connection string).');
+    else warnings.push('DATABASE_URL is not set: using built-in in-memory database.');
+  } else if (!/^postgres(ql)?:\/\//i.test(databaseUrl)) {
+    problems.push('DATABASE_URL must start with postgres:// or postgresql://');
+  }
 
   // ── JWT secret ──────────────────────────────────────────────────────────
   let jwtSecret = env.JWT_SECRET || '';
@@ -93,7 +97,7 @@ function loadConfig(env = process.env) {
     .split(',').map((s) => s.trim()).filter(Boolean)
     .map((o) => normalizeOrigin(o, problems)).filter(Boolean);
 
-  const port = toInt(env.PORT, 3001, { min: 1, max: 65535, name: 'PORT' }, problems);
+  const port = toInt(env.PORT, 3000, { min: 1, max: 65535, name: 'PORT' }, problems);
 
   // ── TLS for managed Postgres ────────────────────────────────────────────
   let databaseSsl = false;
@@ -104,7 +108,7 @@ function loadConfig(env = process.env) {
       const host = new URL(databaseUrl).hostname;
       // Render's *internal* URL uses a bare hostname (no dots) and needs no TLS;
       // the *external* URL uses a public hostname and requires TLS.
-      databaseSsl = isProd && host.includes('.') && !['localhost', '127.0.0.1'].includes(host);
+      databaseSsl = (isProd || host.includes('.render.com')) && host.includes('.') && !['localhost', '127.0.0.1'].includes(host);
     } catch { /* invalid URL already reported above */ }
   }
 
@@ -131,7 +135,7 @@ function loadConfig(env = process.env) {
     ai: {
       apiKey: env.GROQ_API_KEY || '',
       apiUrl: env.GROQ_API_URL || 'https://api.groq.com/openai/v1/chat/completions',
-      model: env.GROQ_MODEL || 'llama-3.3-70b-versatile',
+      model: env.GROQ_MODEL || 'openai/gpt-oss-120b',
       timeoutMs: toInt(env.GROQ_TIMEOUT_MS, 20000, { min: 1000, max: 120000, name: 'GROQ_TIMEOUT_MS' }, problems),
       historyLimit: 20,
     },
@@ -152,7 +156,7 @@ function loadConfig(env = process.env) {
     appTimezone: env.APP_TIMEZONE || 'Asia/Kolkata',
   };
 
-  if (!cfg.ai.apiKey) warnings.push('GROQ_API_KEY is not set: AI chat and symptom analysis will respond with 503 until it is configured.');
+  if (!cfg.ai.apiKey && !process.env.GEMINI_API_KEY) warnings.push('Neither GROQ_API_KEY nor GEMINI_API_KEY is set: AI chat and symptom analysis will respond with 503 until one is configured.');
   if (!cfg.places.apiKey) warnings.push('GEOAPIFY_API_KEY is not set: nearby hospital search will respond with 503 until it is configured.');
   if (isProd && cfg.cors.origins.length === 0) {
     warnings.push('FRONTEND_ORIGIN is not set: cross-origin browser requests are blocked (correct when this service also serves the frontend).');

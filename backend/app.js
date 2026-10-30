@@ -47,6 +47,10 @@ function createApp({ config, db, groq }) {
           res.setHeader('Cache-Control', /\.(svg|png|jpg|woff2?)$/.test(filePath) ? 'public, max-age=86400' : 'no-cache');
         },
       }));
+      app.get('*', (req, res, next) => {
+        if (req.path.startsWith('/api')) return next();
+        res.sendFile(path.join(dir, 'index.html'));
+      });
     } else {
       console.warn(`[server] Frontend directory not found at ${dir}; serving API only.`);
     }

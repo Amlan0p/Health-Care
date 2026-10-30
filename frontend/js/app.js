@@ -71,6 +71,7 @@ async function boot() {
   initTheme(); initA11y(); initNav(); initAuthUi(); initHero(); initContact(); initLegal(); chat.initChat();
   initNews();
   refreshStatus();
+
   try {
     if (await restore()) await dash.enterDashboard();
   } catch {
@@ -78,3 +79,4 @@ async function boot() {
   }
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+

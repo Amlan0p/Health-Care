@@ -7,7 +7,8 @@ function limiter({ windowMs, limit, code, message, keyGenerator }) {
     limit,
     standardHeaders: true,
     legacyHeaders: false,
-    ...(keyGenerator ? { keyGenerator } : {}),
+    validate: false,
+    keyGenerator: keyGenerator || ((req) => req.ip || req.headers['x-forwarded-for'] || req.socket.remoteAddress || '127.0.0.1'),
     handler: (req, res) => {
       const retryAfter = Math.ceil(windowMs / 1000);
       res.status(429).json({ error: message, code, retryAfterSeconds: res.getHeader('Retry-After') ? Number(res.getHeader('Retry-After')) : retryAfter });

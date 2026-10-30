@@ -3,27 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="HealthCare — health information, AI health assistant, symptom information, appointment and medication tracking.">
+<meta name="description" content="Comprehensive healthcare management application with doctor appointment booking, medication schedules, vitals tracking, AI health assistant, hospital finder, and medical news.">
+<meta property="og:title" content="HealthCare - Appointments, Vitals & Health Tracker">
+<meta property="og:description" content="Comprehensive healthcare management application with doctor appointment booking, medication schedules, vitals tracking, AI health assistant, hospital finder, and medical news.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2563b0">
-<title>HealthCare — Your Health, Our Priority</title>
-<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<title>HealthCare - Appointments, Vitals & Health Tracker</title>
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
-<link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/components.css">
-<link rel="stylesheet" href="assets/css/nav.css">
-<link rel="stylesheet" href="assets/css/hero.css">
-<link rel="stylesheet" href="assets/css/services.css">
-<link rel="stylesheet" href="assets/css/news.css">
-<link rel="stylesheet" href="assets/css/contact.css">
-<link rel="stylesheet" href="assets/css/news-modal.css">
-<link rel="stylesheet" href="assets/css/footer.css">
-<link rel="stylesheet" href="assets/css/auth-modal.css">
-<link rel="stylesheet" href="assets/css/dashboard.css">
-<link rel="stylesheet" href="assets/css/icons.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/nav.css">
+<link rel="stylesheet" href="/assets/css/hero.css">
+<link rel="stylesheet" href="/assets/css/services.css">
+<link rel="stylesheet" href="/assets/css/news.css">
+<link rel="stylesheet" href="/assets/css/contact.css">
+<link rel="stylesheet" href="/assets/css/news-modal.css">
+<link rel="stylesheet" href="/assets/css/footer.css">
+<link rel="stylesheet" href="/assets/css/auth-modal.css">
+<link rel="stylesheet" href="/assets/css/dashboard.css">
+<link rel="stylesheet" href="/assets/css/icons.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
 </head>
 <body>
 
@@ -37,7 +41,7 @@
 
   <!-- NAV -->
   <nav id="homeNav">
-    <div class="home-logo" data-action="go-home"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg> Healthcare</div>
+    <div class="home-logo" data-action="go-home"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#health-cross"></use></svg> HealthCare</div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home" class="active" data-section="home">HOME</a></li>
       <li><a href="#services" data-section="services">SERVICES</a></li>
@@ -48,7 +52,10 @@
       <button class="theme-toggle" id="themeToggle1" type="button" title="Toggle day/night" aria-label="Toggle day/night theme">
         <span class="toggle-thumb" id="toggleThumb1"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#sun"></use></svg></span>
       </button>
-      <button class="btn-signin" data-action="go-to-auth">SIGN IN / SIGN UP</button>
+      <button class="btn-signin" data-action="go-to-auth">
+        <span class="btn-signin-full">SIGN IN / SIGN UP</span>
+        <span class="btn-signin-short">SIGN IN</span>
+      </button>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#menu"></use></svg></button>
     </div>
   </nav>
@@ -58,107 +65,111 @@
     <div class="stars" id="stars"></div>
 
     <div class="hero-left">
-      <div class="illustration">
+      <div class="telemetry-hub">
+        <!-- Floating badge 1: AI Triage -->
+        <div class="hero-chip chip-top-left">
+          <div class="chip-icon green"><svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#bot"></use></svg></div>
+          <div class="chip-content">
+            <span class="chip-label">AI Triage Active</span>
+            <span class="chip-val">Instant Symptom Analysis</span>
+          </div>
+        </div>
 
-        <svg class="virus-group" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
-             style="position:absolute;top:0;left:120px;width:200px;height:200px;z-index:1;">
-          <circle cx="100" cy="15"  r="12" fill="#7dc95e"/>
-          <circle cx="150" cy="35"  r="10" fill="#7dc95e"/>
-          <circle cx="178" cy="80"  r="11" fill="#7dc95e"/>
-          <circle cx="178" cy="125" r="10" fill="#7dc95e"/>
-          <circle cx="148" cy="162" r="12" fill="#7dc95e"/>
-          <circle cx="100" cy="178" r="11" fill="#7dc95e"/>
-          <circle cx="52"  cy="162" r="10" fill="#7dc95e"/>
-          <circle cx="22"  cy="125" r="11" fill="#7dc95e"/>
-          <circle cx="22"  cy="80"  r="10" fill="#7dc95e"/>
-          <circle cx="50"  cy="35"  r="12" fill="#7dc95e"/>
-          <circle cx="100" cy="100" r="70" fill="#7dc95e"/>
-          <ellipse cx="80"  cy="80"  rx="18" ry="12" fill="#a8dba4" opacity="0.7" transform="rotate(-30 80 80)"/>
-          <ellipse cx="125" cy="95"  rx="14" ry="9"  fill="#a8dba4" opacity="0.7" transform="rotate(20 125 95)"/>
-          <ellipse cx="90"  cy="125" rx="16" ry="10" fill="#a8dba4" opacity="0.6" transform="rotate(-10 90 125)"/>
-        </svg>
+        <!-- Central Telemetry Card -->
+        <div class="telemetry-card">
+          <div class="telemetry-header">
+            <div class="telemetry-title">
+              <span class="live-dot"></span>
+              <span>PATIENT VITALS TELEMETRY</span>
+            </div>
+            <div class="telemetry-badge">LIVE · RESTING</div>
+          </div>
 
-        <div class="monitor">
-          <div class="monitor-screen">
-            <svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg" style="width:300px;height:260px;display:block;">
-              <rect x="95" y="130" width="110" height="130" rx="10" fill="#e8f0f7"/>
-              <polygon points="150,145 125,210 150,195" fill="#d0dcea"/>
-              <polygon points="150,145 175,210 150,195" fill="#d0dcea"/>
-              <rect x="125" y="145" width="50" height="50" rx="4" fill="#5cb85c"/>
-              <circle cx="150" cy="105" r="38" fill="#f5c9a3"/>
-              <ellipse cx="150" cy="76" rx="38" ry="18" fill="#5b3a29"/>
-              <rect x="112" y="76" width="76" height="22" rx="4" fill="#5b3a29"/>
-              <rect x="128" y="70" width="44" height="8" rx="4" fill="#4a90c4"/>
-              <circle cx="152" cy="74" r="7" fill="#b0cfe8" stroke="#4a90c4" stroke-width="2"/>
-              <ellipse cx="138" cy="108" rx="5" ry="6" fill="#3a2010"/>
-              <ellipse cx="162" cy="108" rx="5" ry="6" fill="#3a2010"/>
-              <path d="M138 122 Q150 132 162 122" stroke="#c0896a" stroke-width="2" fill="none" stroke-linecap="round"/>
-              <g id="doctor-arm">
-                <line x1="205" y1="155" x2="255" y2="115" stroke="#e8f0f7" stroke-width="22" stroke-linecap="round"/>
-                <circle cx="258" cy="112" r="10" fill="#f5c9a3"/>
-              </g>
-              <line x1="95" y1="160" x2="60" y2="200" stroke="#e8f0f7" stroke-width="22" stroke-linecap="round"/>
-              <rect x="32" y="188" width="52" height="70" rx="6" fill="#8e7fc0" stroke="#6b5fad" stroke-width="3"/>
-              <rect x="38" y="196" width="40" height="52" rx="3" fill="#b0a8d8"/>
+          <!-- Animated ECG Cardiac Waveform -->
+          <div class="ecg-container" aria-hidden="true">
+            <svg class="ecg-wave" viewBox="0 0 500 100" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="ecgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="var(--accent-teal)" stop-opacity="0.1"/>
+                  <stop offset="60%" stop-color="var(--accent-teal)" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="var(--accent-green)" stop-opacity="1"/>
+                </linearGradient>
+              </defs>
+              <path class="ecg-grid" d="M0 20 H500 M0 50 H500 M0 80 H500" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="2 4" />
+              <path class="ecg-line" d="M0 50 L80 50 L95 48 L105 52 L115 50 L140 50 L150 15 L160 85 L170 30 L180 58 L190 50 L260 50 L275 48 L285 52 L295 50 L320 50 L330 15 L340 85 L350 30 L360 58 L370 50 L500 50" fill="none" stroke="url(#ecgGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
+            <div class="ecg-scanline"></div>
           </div>
-          <div class="monitor-stand"></div>
-          <div class="monitor-base"></div>
+
+          <!-- Vitals Grid -->
+          <div class="telemetry-metrics">
+            <div class="metric-box">
+              <div class="metric-top">
+                <span class="metric-icon pulse-red"><svg class="icon"><use href="/assets/icons/sprite.svg#heart"></use></svg></span>
+                <span class="metric-tag">Normal</span>
+              </div>
+              <div class="metric-value">72 <span class="metric-unit">BPM</span></div>
+              <div class="metric-label">Heart Rate</div>
+            </div>
+
+            <div class="metric-box">
+              <div class="metric-top">
+                <span class="metric-icon blue"><svg class="icon"><use href="/assets/icons/sprite.svg#droplet"></use></svg></span>
+                <span class="metric-tag">Optimal</span>
+              </div>
+              <div class="metric-value">98 <span class="metric-unit">%</span></div>
+              <div class="metric-label">SpO₂ Oxygen</div>
+            </div>
+
+            <div class="metric-box">
+              <div class="metric-top">
+                <span class="metric-icon purple"><svg class="icon"><use href="/assets/icons/sprite.svg#activity"></use></svg></span>
+                <span class="metric-tag">Target</span>
+              </div>
+              <div class="metric-value">120/80</div>
+              <div class="metric-label">Blood Pressure</div>
+            </div>
+          </div>
         </div>
 
-        <div class="icon-cards">
-          <div class="icon-card">
-            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#e8f4fd"/>
-              <path d="M20 8 L34 20 H30 V32 H24 V26 H16 V32 H10 V20 H6 Z" fill="#4a90c4"/>
-              <rect x="17" y="16" width="6" height="2" rx="1" fill="white"/>
-              <rect x="19" y="14" width="2" height="6" rx="1" fill="white"/></svg>
+        <!-- Floating badge 2: Hospital Geolocation -->
+        <div class="hero-chip chip-bottom-right">
+          <div class="chip-icon blue"><svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#map-pin"></use></svg></div>
+          <div class="chip-content">
+            <span class="chip-label">Emergency Locator</span>
+            <span class="chip-val">50+ Nearby Hospitals</span>
           </div>
-          <div class="icon-card">
-            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#e8f4fd"/>
-              <rect x="15" y="8" width="10" height="5" rx="2" fill="#4a90c4"/>
-              <rect x="13" y="12" width="14" height="20" rx="5" fill="#4a90c4"/>
-              <rect x="18" y="18" width="4" height="2" rx="1" fill="white"/>
-              <rect x="19" y="16" width="2" height="6" rx="1" fill="white"/></svg>
-          </div>
-          <div class="icon-card">
-            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#e8f4fd"/>
-              <path d="M20 10 C20 10 12 20 12 25 a8 8 0 0 0 16 0 C28 20 20 10 20 10Z" fill="#4a90c4"/>
-              <circle cx="17" cy="24" r="2.5" fill="white" opacity="0.6"/></svg>
-          </div>
-        </div>
-
-        <svg style="position:absolute;left:-30px;top:90px;z-index:3;pointer-events:none;" width="110" height="220" viewBox="0 0 110 220">
-          <circle cx="90" cy="10"  r="7" fill="#c8e0f4" stroke="#4a90c4" stroke-width="2"/>
-          <line class="dash-line" x1="90" y1="10" x2="40" y2="30" stroke="#4a90c4" stroke-width="1.5" stroke-dasharray="4 3"/>
-          <circle cx="90" cy="110" r="7" fill="#c8e0f4" stroke="#4a90c4" stroke-width="2"/>
-          <line class="dash-line" x1="90" y1="110" x2="40" y2="90" stroke="#4a90c4" stroke-width="1.5" stroke-dasharray="4 3" style="animation-delay:0.4s"/>
-          <circle cx="90" cy="200" r="7" fill="#c8e0f4" stroke="#4a90c4" stroke-width="2"/>
-          <line class="dash-line" x1="90" y1="200" x2="40" y2="155" stroke="#4a90c4" stroke-width="1.5" stroke-dasharray="4 3" style="animation-delay:0.8s"/>
-        </svg>
-
-        <div class="mask-card">
-          <svg viewBox="0 0 50 38" fill="none" width="44">
-            <path d="M2 12 Q25 4 48 12 L48 26 Q25 34 2 26 Z" fill="#a8d8ea" stroke="#7bbcde" stroke-width="2"/>
-            <path d="M2 12 Q25 18 48 12" stroke="#7bbcde" stroke-width="1.5" fill="none"/>
-            <path d="M2 26 Q25 20 48 26" stroke="#7bbcde" stroke-width="1.5" fill="none"/>
-            <line x1="0" y1="14" x2="2" y2="24" stroke="#5fa8ca" stroke-width="2" stroke-linecap="round"/>
-            <line x1="50" y1="14" x2="48" y2="24" stroke="#5fa8ca" stroke-width="2" stroke-linecap="round"/>
-          </svg>
         </div>
       </div>
     </div>
 
     <div class="hero-right">
+      <div class="hero-kicker reveal">CLINICAL INTELLIGENCE · UNIFIED PORTAL</div>
       <h1 class="reveal" id="hero-heading">Healthy Life Starts from Here<span class="cursor"></span></h1>
-      <p class="reveal" style="transition-delay:0.15s">We bring trusted medical support, expert guidance, and digital healthcare services right to your fingertips, helping you live a balanced and healthier life every day.</p>
-      <button class="btn-start reveal" style="transition-delay:0.3s" data-action="go-to-auth">START HERE</button>
-    </div>
-
-    <div class="scroll-cta" data-action="scroll-to" data-arg="services">
-      <span>Scroll to explore</span>
-      <svg viewBox="0 0 28 28" fill="none" stroke="var(--blue-mid)" stroke-width="2" stroke-linecap="round">
-        <polyline points="6,10 14,18 22,10"/>
-      </svg>
+      <p class="reveal" style="transition-delay:0.12s">A precision patient platform uniting 24/7 AI-guided symptom triage, verified doctor appointments, live emergency radar, and personal health metrics.</p>
+      <div class="hero-actions reveal" style="transition-delay:0.24s">
+        <button class="btn-primary" data-action="go-to-auth">
+          <span>START HERE</span>
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#arrow-right"></use></svg>
+        </button>
+        <button class="btn-secondary" data-action="scroll-to" data-arg="services">VIEW SERVICES</button>
+      </div>
+      <div class="hero-proof-bar reveal" style="transition-delay:0.32s">
+        <div class="proof-item">
+          <strong>24/7</strong>
+          <span>AI Health Assist</span>
+        </div>
+        <div class="proof-sep"></div>
+        <div class="proof-item">
+          <strong>15+</strong>
+          <span>Specialists Listed</span>
+        </div>
+        <div class="proof-sep"></div>
+        <div class="proof-item">
+          <strong>112 & 102</strong>
+          <span>Direct SOS Hotlines</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -402,9 +413,9 @@
   <div class="auth-container" role="dialog" aria-modal="true" aria-labelledby="authTitle">
     <button class="auth-modal-close" type="button" data-action="close-auth" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#x"></use></svg></button>
     <div class="auth-logo">
-      <div class="auth-logo-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg></div>
-      <h2 id="authTitle"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg> HealthCare</h2>
-      <p>Your personal health companion</p>
+      <div class="auth-logo-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#health-cross"></use></svg></div>
+      <h2 id="authTitle">HealthCare Portal</h2>
+      <p>Clinical workspace &amp; patient records</p>
     </div>
 
     <div class="auth-tabs" role="tablist">
@@ -426,8 +437,11 @@
         </div>
         <button class="btn-auth" type="submit" id="siSubmit">SIGN IN TO DASHBOARD</button>
       </form>
-      <div class="auth-divider" style="margin-top:18px;">or</div>
-      <button class="btn-social" type="button" data-action="demo-login" style="width:100%;margin-top:12px;justify-content:center;color:var(--text-body);font-size:0.78rem;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#eye"></use></svg> Continue as Demo (read-only sample data)</button>
+      <div class="auth-divider">or</div>
+      <button class="btn-demo-access" type="button" data-action="demo-login">
+        <span class="btn-demo-main"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#eye"></use></svg> Instant Demo Access</span>
+        <span class="btn-demo-sub">Explore full dashboard with sample records</span>
+      </button>
       <p class="auth-footer-text">
         Don't have an account? <span class="auth-link" data-action="auth-tab" data-arg="signup">Sign up free</span>
       </p>
@@ -460,7 +474,7 @@
           <label for="suConfirm">Confirm Password</label>
           <input class="form-input" type="password" id="suConfirm" name="confirm" placeholder="Repeat your password" autocomplete="new-password" required maxlength="72">
         </div>
-        <button class="btn-auth" type="submit" id="suSubmit" style="background:var(--green);box-shadow:0 6px 20px rgba(78,168,62,0.3);">CREATE ACCOUNT</button>
+        <button class="btn-auth" type="submit" id="suSubmit" style="background:var(--green);box-shadow:0 6px 20px rgba(5,150,105,0.3);">CREATE ACCOUNT</button>
       </form>
       <p class="auth-footer-text">
         Already have an account? <span class="auth-link" data-action="auth-tab" data-arg="signin">Sign in</span>
@@ -471,21 +485,55 @@
 
 
 <!-- ═══════════════════════════════════
-     PAGE 3: DASHBOARD — UNCHANGED from Doc 1
+     PAGE 3: DASHBOARD — CLINICAL PORTAL
 ════════════════════════════════════ -->
 <div class="page" id="page-dashboard">
 
   <!-- SOS MODAL -->
   <div class="sos-modal-overlay" id="sosModal">
     <div class="sos-modal" role="dialog" aria-modal="true" aria-labelledby="sosTitle">
-      <div class="sos-modal-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#siren"></use></svg></div>
-      <h2 id="sosTitle">Emergency SOS</h2>
-      <p>Are you in a medical emergency? Tap a button below to call. This app does not contact anyone on your behalf.</p>
-      <div class="modal-actions">
-        <a href="tel:112" class="modal-btn call"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#life-buoy"></use></svg> Call Emergency — 112</a>
-        <a href="tel:102" class="modal-btn call"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#ambulance"></use></svg> Call Ambulance — 102</a>
-        <a href="tel:100" class="modal-btn police"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#shield-alert"></use></svg> Call Police — 100</a>
-        <button class="modal-btn cancel" data-action="close-sos">Cancel</button>
+      <button class="modal-close-btn" type="button" data-action="close-sos" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#x"></use></svg></button>
+      <div class="sos-modal-header">
+        <div class="sos-modal-icon-badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#siren"></use></svg></div>
+        <div>
+          <h2 id="sosTitle" class="sos-modal-title">Emergency SOS</h2>
+          <p class="sos-modal-subtitle">Instant direct emergency hotlines. Select a service to connect immediately:</p>
+        </div>
+      </div>
+      <div class="sos-action-cards">
+        <a href="tel:112" class="sos-card-btn primary-call">
+          <div class="sos-card-left">
+            <div class="sos-card-icon" style="background:rgba(255,255,255,0.2);"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#life-buoy"></use></svg></div>
+            <div>
+              <div class="sos-card-name">National Emergency</div>
+              <div class="sos-card-desc">All emergencies / police / medical</div>
+            </div>
+          </div>
+          <div class="sos-card-num">112</div>
+        </a>
+        <a href="tel:102" class="sos-card-btn ambulance-call">
+          <div class="sos-card-left">
+            <div class="sos-card-icon" style="background:var(--accent-red-light);color:var(--accent-red);"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#ambulance"></use></svg></div>
+            <div>
+              <div class="sos-card-name">Ambulance Service</div>
+              <div class="sos-card-desc">Direct medical transport hotline</div>
+            </div>
+          </div>
+          <div class="sos-card-num" style="color:var(--accent-red);">102</div>
+        </a>
+        <a href="tel:100" class="sos-card-btn police-call">
+          <div class="sos-card-left">
+            <div class="sos-card-icon" style="background:var(--primary-light);color:var(--primary);"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#shield-alert"></use></svg></div>
+            <div>
+              <div class="sos-card-name">Police Assistance</div>
+              <div class="sos-card-desc">Safety & urgent crime reports</div>
+            </div>
+          </div>
+          <div class="sos-card-num" style="color:var(--primary);">100</div>
+        </a>
+      </div>
+      <div class="sos-modal-footer">
+        <button class="modal-btn cancel" data-action="close-sos" type="button">Dismiss</button>
       </div>
     </div>
   </div>
@@ -494,9 +542,13 @@
   <div class="sos-modal-overlay" id="bookApptModal" style="z-index:1001;">
     <div class="sos-modal appt-modal" role="dialog" aria-modal="true" aria-labelledby="apptTitle">
       <button class="modal-close-btn" type="button" data-action="close-book-appt" style="position:absolute;top:14px;right:14px;" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#x"></use></svg></button>
-      <div style="font-size:2rem;margin-bottom:10px;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#calendar"></use></svg></div>
-      <h2 id="apptTitle" style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--text-dark);margin-bottom:6px;font-size:1.35rem;">Book an Appointment</h2>
-      <p style="color:var(--text-body);font-size:0.83rem;margin-bottom:8px;">Select a doctor from the list below</p>
+      <div class="appt-modal-header">
+        <div class="appt-modal-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#calendar"></use></svg></div>
+        <div>
+          <h2 id="apptTitle">Book an Appointment</h2>
+          <p class="appt-modal-sub">Schedule a consultation with our verified clinical specialists</p>
+        </div>
+      </div>
       <p class="sample-note" id="doctorNotice" style="margin-bottom:16px;"></p>
       <div class="auth-error" id="apptError" role="alert"></div>
 
@@ -507,20 +559,20 @@
 
       <!-- Step 2: Date & time picker -->
       <div id="apptStep2" style="display:none;">
-        <div id="selectedDoctorPreview" style="background:var(--surface2);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:18px;display:flex;align-items:center;gap:12px;"></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
+        <div id="selectedDoctorPreview" class="selected-doctor-card"></div>
+        <div class="appt-picker-grid">
           <div>
-            <label for="apptDateInput" style="font-size:0.78rem;font-weight:700;color:var(--text-body);display:block;margin-bottom:6px;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#calendar-days"></use></svg> Date</label>
-            <input type="date" id="apptDateInput" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);color:var(--text-dark);font-size:0.88rem;font-family:'Lato',sans-serif;">
+            <label for="apptDateInput"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#calendar-days"></use></svg> Date</label>
+            <input type="date" id="apptDateInput">
           </div>
           <div>
-            <label for="apptTimeInput" style="font-size:0.78rem;font-weight:700;color:var(--text-body);display:block;margin-bottom:6px;"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#clock"></use></svg> Time</label>
-            <select id="apptTimeInput" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);color:var(--text-dark);font-size:0.88rem;font-family:'Lato',sans-serif;"></select>
+            <label for="apptTimeInput"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#clock"></use></svg> Available Slot</label>
+            <select id="apptTimeInput"></select>
           </div>
         </div>
         <div style="display:flex;gap:10px;">
           <button class="modal-btn cancel" type="button" style="flex:1;" data-action="appt-back"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#arrow-left"></use></svg> Back</button>
-          <button class="modal-btn" style="flex:2;background:var(--blue-dark);color:#fff;" data-action="confirm-appt" type="button" id="confirmApptBtn"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#check"></use></svg> Save Appointment</button>
+          <button class="modal-btn confirm" style="flex:2;" data-action="confirm-appt" type="button" id="confirmApptBtn"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#check"></use></svg> Confirm Booking</button>
         </div>
       </div>
     </div>
@@ -529,7 +581,7 @@
   <!-- DASHBOARD NAV -->
   <nav class="main-nav" id="dashNav">
     <div class="logo-wrap" data-action="go-home" aria-label="HealthCare home">
-      <div class="logo-icon-nav"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg></div>
+      <div class="logo-icon-nav"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#health-cross"></use></svg></div>
       HealthCare
     </div>
     <div class="dash-nav-tabs" id="dashTabs" role="tablist" aria-label="Dashboard sections">
@@ -808,8 +860,14 @@
   <!-- ADD MEDICATION MODAL -->
   <div class="add-med-modal-overlay" id="addMedModal" data-action="overlay-add-med">
     <div class="add-med-modal" role="dialog" aria-modal="true" aria-labelledby="addMedTitle">
-      <button class="modal-close-btn" type="button" data-action="close-add-med" style="position:absolute;top:12px;right:12px;" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#x"></use></svg></button>
-      <h3 id="addMedTitle"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg> Add Medication</h3>
+      <button class="modal-close-btn" type="button" data-action="close-add-med" style="position:absolute;top:14px;right:14px;" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#x"></use></svg></button>
+      <div class="add-med-modal-header">
+        <div class="add-med-icon-badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#pill"></use></svg></div>
+        <div>
+          <h3 id="addMedTitle">Add Medication</h3>
+          <p class="add-med-subtitle">Record daily prescribed dosage &amp; schedule</p>
+        </div>
+      </div>
       <div class="add-med-field">
         <label for="newMedName">Medication Name *</label>
         <input type="text" id="newMedName" maxlength="100" autocomplete="off" placeholder="e.g. Metformin 500mg" list="medSuggestions">
@@ -837,8 +895,8 @@
 
 </div><!-- /page-dashboard -->
 
-<script src="assets/vendor/leaflet/leaflet.js"></script>
-<script src="config.js"></script>
-<script type="module" src="js/app.js"></script>
+<script src="/assets/vendor/leaflet/leaflet.js"></script>
+<script src="/config.js"></script>
+<script type="module" src="/js/app.js"></script>
 </body>
 </html>

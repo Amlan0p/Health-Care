@@ -1,125 +1,170 @@
-/* ═══════════════════════════════
-   CONTACT SECTION (from interface-1)
-═══════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   CONTACT SECTION
+   Modern clinical consultation card, tactile form controls
+═══════════════════════════════════════════════════════════════ */
+
 #contact {
-  padding: 80px 60px;
+  padding: 100px 60px;
   position: relative;
-  overflow: hidden;
   background: var(--bg);
-  transition: var(--transition);
+  max-width: 1400px;
+  margin: 0 auto;
 }
-
-#contact::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: rgba(26,63,111,0.12);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  z-index: 0;
-}
-body.dark #contact::before {
-  background: rgba(5,15,35,0.45);
-}
-
-#contact > * { position: relative; z-index: 1; }
 
 .contact-inner {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 56px;
   align-items: center;
 }
 
 .contact-info h2 {
-  font-family: 'Nunito', sans-serif; font-weight: 900;
-  font-size: 2.4rem; color: var(--blue-dark);
-  letter-spacing: -0.5px; margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  color: var(--text-dark);
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
   line-height: 1.15;
 }
+
 .contact-info p {
-  font-size: 0.95rem; color: var(--text-body);
-  line-height: 1.75; margin-bottom: 32px;
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 32px;
 }
 
 .social-row {
-  display: flex; gap: 14px; flex-wrap: wrap;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .social-btn {
-  width: 48px; height: 48px;
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   text-decoration: none;
-  border: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-  position: relative;
-  overflow: hidden;
-}
-.social-btn:hover {
-  transform: translateY(-4px) scale(1.1);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.2);
-}
-.social-btn svg {
-  width: 22px; height: 22px;
-  fill: white;
-  flex-shrink: 0;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: all 0.2s var(--ease-spring);
+  box-shadow: var(--shadow-xs);
 }
 
-.social-btn.fb   { background: #1877f2; }
-.social-btn.wa   { background: #25d366; }
-.social-btn.ig   { background: linear-gradient(135deg,#f58529,#dd2a7b,#8134af); }
-.social-btn.li   { background: #0a66c2; }
-.social-btn.mail { background: #ea4335; }
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.social-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--text-dark);
+  transition: fill 0.2s ease;
+}
+
+.social-btn:hover svg {
+  fill: var(--primary);
+}
 
 .contact-form-wrap {
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 22px;
-  border: 1.5px solid rgba(189,217,245,0.6);
-  padding: 34px 30px;
-  box-shadow: 0 12px 40px rgba(42,100,170,0.1);
-}
-body.dark .contact-form-wrap {
-  background: rgba(30,41,59,0.6);
-  border: 1.5px solid rgba(30,48,80,0.7);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  padding: 38px 34px;
+  box-shadow: var(--shadow-lg);
 }
 
 .contact-form-wrap h3 {
-  font-family: 'Nunito', sans-serif; font-weight: 800;
-  font-size: 1.15rem; color: var(--blue-dark);
-  margin-bottom: 20px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--text-dark);
+  margin-bottom: 22px;
 }
 
-.cf-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.cf-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
 .cf-group label {
-  font-family: 'Nunito', sans-serif; font-weight: 700;
-  font-size: 0.78rem; color: var(--text-dark);
-  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-dark);
 }
+
 .cf-input {
-  padding: 11px 14px; border-radius: 10px;
-  border: 2px solid var(--border); background: var(--bg);
-  color: var(--text-dark); font-family: 'Lato', sans-serif;
-  font-size: 0.88rem; outline: none; transition: border-color 0.2s;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.cf-input:focus { border-color: var(--blue-mid); }
-.cf-input::placeholder { color: var(--text-body); }
+
+.cf-input:focus {
+  border-color: var(--primary);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.cf-input::placeholder {
+  color: var(--text-dimmer);
+}
+
 textarea.cf-input {
-  resize: vertical; min-height: 90px;
+  resize: vertical;
+  min-height: 100px;
 }
 
 .btn-cf-send {
-  background: var(--blue-dark); color: white;
-  border: none; padding: 13px 28px; border-radius: 12px;
-  font-family: 'Nunito', sans-serif; font-weight: 800;
-  font-size: 0.88rem; letter-spacing: 0.05em; cursor: pointer;
-  transition: background 0.2s, transform 0.15s;
-  position: relative; overflow: hidden;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-spring);
   width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.25);
 }
-.btn-cf-send:hover { background: var(--blue-mid); transform: translateY(-1px); }
+
+.btn-cf-send:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35);
+}
+
+.btn-cf-send:active {
+  transform: translateY(0);
+}
+
+.form-status {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  margin-top: 10px;
+  text-align: center;
+}

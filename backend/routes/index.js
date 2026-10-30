@@ -117,23 +117,23 @@ function buildApiRouter({ db, config, tokens, auth, ai, limiters }) {
 
   // Appointments
   api.get('/appointments', requireAuth(), wrap(apptC.list));
-  api.post('/appointments', requireAuth(), validate(v.appt.create), wrap(apptC.create));
-  api.patch('/appointments/:id', requireAuth(), validate(idParam, 'params'), validate(v.appt.update), wrap(apptC.update));
-  api.delete('/appointments/:id', requireAuth(), validate(idParam, 'params'), wrap(apptC.remove));
+  api.post('/appointments', requireAuth({ allowDemoWrites: true }), validate(v.appt.create), wrap(apptC.create));
+  api.patch('/appointments/:id', requireAuth({ allowDemoWrites: true }), validate(idParam, 'params'), validate(v.appt.update), wrap(apptC.update));
+  api.delete('/appointments/:id', requireAuth({ allowDemoWrites: true }), validate(idParam, 'params'), wrap(apptC.remove));
 
   // Medications
   api.get('/medications', requireAuth(), wrap(medC.list));
-  api.post('/medications', requireAuth(), validate(v.med.create), wrap(medC.create));
-  api.patch('/medications/:id', requireAuth(), validate(idParam, 'params'), validate(v.med.update), wrap(medC.update));
-  api.delete('/medications/:id', requireAuth(), validate(idParam, 'params'), wrap(medC.remove));
+  api.post('/medications', requireAuth({ allowDemoWrites: true }), validate(v.med.create), wrap(medC.create));
+  api.patch('/medications/:id', requireAuth({ allowDemoWrites: true }), validate(idParam, 'params'), validate(v.med.update), wrap(medC.update));
+  api.delete('/medications/:id', requireAuth({ allowDemoWrites: true }), validate(idParam, 'params'), wrap(medC.remove));
 
   // Vitals
   api.get('/vitals', requireAuth(), wrap(vitC.list));
-  api.put('/vitals', requireAuth(), validate(v.vit.put), wrap(vitC.put));
-  api.delete('/vitals/:key', requireAuth(), validate(v.vit.keyParam, 'params'), wrap(vitC.remove));
+  api.put('/vitals', requireAuth({ allowDemoWrites: true }), validate(v.vit.put), wrap(vitC.put));
+  api.delete('/vitals/:key', requireAuth({ allowDemoWrites: true }), validate(v.vit.keyParam, 'params'), wrap(vitC.remove));
 
-  // AI proxy (frontend → this API → Groq). Not available to demo sessions.
-  const aiGuard = [requireAuth(), denyDemo, limiters.ai];
+  // AI proxy (frontend → this API → Groq).
+  const aiGuard = [requireAuth({ allowDemoWrites: true }), limiters.ai];
   api.post('/chat', ...aiGuard, validate(v.ai.chat), wrap(aiC.chat));
   api.get('/chat/history', requireAuth(), wrap(aiC.history));
   api.delete('/chat/history', requireAuth(), wrap(aiC.clearHistory));

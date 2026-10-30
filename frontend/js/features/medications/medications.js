@@ -66,6 +66,13 @@ export async function confirmAddMed() {
   err.style.display = 'none';
   if (!name) return fail('Please enter a medication name.');
   if (!time) return fail('Please enter when to take this medication.');
-  try { meds.push(await api.createMedication({ name, time, status })); render(); closeAddMed(); }
-  catch (e) { fail(e.message || 'Failed to add medication.'); }
+  try {
+    const newMed = await api.createMedication({ name, time, status });
+    meds.push(newMed);
+    render();
+    closeAddMed();
+    toast(`Added "${name}" to your medication schedule!`, 'success');
+  } catch (e) {
+    fail(e.message || 'Failed to add medication.');
+  }
 }

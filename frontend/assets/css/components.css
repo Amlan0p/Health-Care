@@ -1,32 +1,88 @@
-/* ═══════════════════════════════
-   PAGE SYSTEM (3 pages)
-═══════════════════════════════ */
-.page { display: none; }
-.page.active { display: block; }
+/* ═══════════════════════════════════════════════════════════════
+   PAGE SYSTEM & SHARED COMPONENTS
+═══════════════════════════════════════════════════════════════ */
 
-/* ═══════════════════════════════
-   SHARED COMPONENTS
-═══════════════════════════════ */
-/* Read progress bar */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* Scroll Read Progress Bar */
 .read-progress {
-  position: fixed; top: 0; left: 0; z-index: 9999;
-  height: 3px; width: 0%;
-  background: linear-gradient(90deg, var(--green), var(--blue-mid));
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  height: 3px;
+  width: 0%;
+  background: var(--primary);
   transition: width 0.1s linear;
-  box-shadow: 0 0 6px rgba(110,194,91,0.5);
+  box-shadow: 0 0 8px rgba(2, 132, 199, 0.4);
 }
 
-.ripple { position:absolute; border-radius:50%; transform:scale(0); animation:rippleAnim 0.6s linear; background:rgba(255,255,255,0.35); pointer-events:none; }
-@keyframes rippleAnim { to{transform:scale(4);opacity:0} }
-
+/* Back to Top Floating Button */
 .back-top {
-  position: fixed; bottom: 28px; right: 28px; z-index: 200;
-  width: 44px; height: 44px; border-radius: 12px;
-  background: var(--blue-dark); color: white; border: none;
-  font-size: 1.2rem; cursor: pointer;
-  box-shadow: 0 4px 20px rgba(26,63,111,0.4);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s;
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dark);
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.25s var(--ease-spring), transform 0.25s var(--ease-spring), background 0.2s, border-color 0.2s;
 }
-.back-top.show { opacity:1; transform:translateY(0); }
-.back-top:hover { background: var(--blue-mid); transform: translateY(-3px); }
+
+.back-top .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.back-top.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-top:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Common form utilities */
+.auth-error, .appt-error {
+  background: var(--accent-red-light);
+  border: 1px solid rgba(225, 29, 72, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  color: var(--accent-red);
+  margin-bottom: 12px;
+  display: none;
+}
+.auth-error.show, .appt-error.show { display: block; }
+
+.auth-success {
+  background: var(--accent-green-light);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  color: var(--accent-green);
+  margin-bottom: 12px;
+  display: none;
+}
+.auth-success.show { display: block; }
