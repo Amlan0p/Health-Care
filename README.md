@@ -7,6 +7,17 @@ AI chat and symptom information are proxied through the backend to **Groq**; the
 > does not replace a qualified healthcare professional. News articles and the doctor directory are **sample content**.
 > See `AUDIT.md` for what was changed and why, and `VALIDATION.md` for what was actually tested.
 
+---
+
+<p align="center">
+  <a href="https://healthcare-app-7viu.onrender.com/">
+    <img src="https://img.shields.io/badge/LIVE_DEMO-Visit_Health-Care-38bdf8?style=for-the-badge&logo=render&logoColor=white" alt="Live Demo">
+  </a>
+</p>
+
+---
+
+
 ## Project structure
 
 ```
