@@ -11,7 +11,7 @@ AI chat and symptom information are proxied through the backend to **Groq**; the
 
 <p align="center">
   <a href="https://healthcare-app-7viu.onrender.com/">
-    <img src="https://img.shields.io/badge/LIVE_DEMO-Visit_Health-Care-38bdf8?style=for-the-badge&logo=render&logoColor=white" alt="Live Demo">
+    <img src="https://img.shields.io/badge/LIVE_DEMO-Visit_Health--Care-38bdf8?style=for-the-badge&logo=render&logoColor=white" alt="Live Demo">
   </a>
 </p>
 
